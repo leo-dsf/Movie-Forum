@@ -1,5 +1,5 @@
-# Movie Forum
-Movie forum website.
+# Movies Forum
+Movies forum website.
 
 ## Authors
 - [Leonardo Flórido](https://github.com/leo-dsf)
