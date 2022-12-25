@@ -1,12 +1,13 @@
-from django.shortcuts import render
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from app.models import Movie, Review
-from app.serializers import MovieSerializer, ReviewSerializer
+
+from app.models import Movie
+from app.serializers import MovieSerializer, UserSerializer
 
 
 # Create your views here.
+# Movie Web Services
 @api_view(['GET'])
 def movie_list(request, sort):
     """Get all movies in certain order"""
@@ -62,3 +63,24 @@ def delete_movie(request, movie_id):
         return Response(status=status.HTTP_404_NOT_FOUND)
     movie.delete()
     return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+# Review Web Services
+# TODO: Review Web Services
+
+
+# User Web Services
+@api_view(['POST'])
+def register(request):
+    """Register a new user"""
+    serializer = UserSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['POST'])
+def login(request):
+    """Login a user"""
+    pass
