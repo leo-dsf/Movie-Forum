@@ -1,5 +1,5 @@
-# Movies Forum
-Movies forum website.
+# Movie Forum
+Movie forum website.
 
 ## Course
 This project was developed under the [Technologies and Web Programming](https://www.ua.pt/en/uc/12841) course of [Aveiro University](https://www.ua.pt).
