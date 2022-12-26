@@ -2,8 +2,8 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from app.models import Director, Movie
-from app.serializers import DirectorSerializer, MovieSerializer, UserSerializer
+from app.models import Director, Movie, Review
+from app.serializers import DirectorSerializer, MovieSerializer, ReviewSerializer, UserSerializer
 
 
 # Create your views here.
@@ -117,6 +117,39 @@ def delete_movie(request, movie_id):
     except Movie.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
     movie.delete()
+    return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+# Review Web Services
+@api_view(['GET'])
+def review_list(request, movie_id):
+    """Get all reviews for a movie"""
+    try:
+        reviews = Review.objects.filter(movie_id=movie_id)
+    except Review.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    serializer = ReviewSerializer(reviews, many=True)
+    return Response(serializer.data)
+
+
+@api_view(['POST'])
+def create_review(request):
+    """Create a review"""
+    serializer = ReviewSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['DELETE'])
+def delete_review(request, review_id):
+    """Delete a review"""
+    try:
+        review = Review.objects.get(id=review_id)
+    except Review.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    review.delete()
     return Response(status=status.HTTP_204_NO_CONTENT)
 
 
