@@ -2,11 +2,31 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from app.models import Movie
-from app.serializers import MovieSerializer, UserSerializer
+from app.models import Director, Movie
+from app.serializers import DirectorSerializer, MovieSerializer, UserSerializer
 
 
 # Create your views here.
+# Director Web Services
+@api_view(['GET'])
+def director_list(request):
+    """Get all directors"""
+    directors = Director.objects.all()
+    serializer = DirectorSerializer(directors, many=True)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def director_detail(request, director_id):
+    """Get a director by id"""
+    try:
+        director = Director.objects.get(id=director_id)
+    except Director.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    serializer = DirectorSerializer(director)
+    return Response(serializer.data)
+
+
 # Movie Web Services
 @api_view(['GET'])
 def movie_list(request, sort):
@@ -21,7 +41,7 @@ def movie_list(request, sort):
 
 @api_view(['GET'])
 def movie_detail(request, movie_id):
-    """Get movie details"""
+    """Get a movie by id"""
     try:
         movie = Movie.objects.get(id=movie_id)
     except Movie.DoesNotExist:
@@ -65,10 +85,6 @@ def delete_movie(request, movie_id):
     return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-# Review Web Services
-# TODO: Review Web Services
-
-
 # User Web Services
 @api_view(['POST'])
 def register(request):
@@ -78,9 +94,3 @@ def register(request):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-@api_view(['POST'])
-def login(request):
-    """Login a user"""
-    pass

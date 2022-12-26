@@ -1,7 +1,13 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
-from app.models import Movie, Review
+from app.models import Director, Movie, Review
+
+
+class DirectorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Director
+        fields = '__all__'
 
 
 class MovieSerializer(serializers.ModelSerializer):

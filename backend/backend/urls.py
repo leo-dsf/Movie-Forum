@@ -20,8 +20,11 @@ from app import views
 
 urlpatterns = [
     # Admin
-    path('admin/', admin.site.urls, name="admin"),
-    # Web Services
+    path('admin/', admin.site.urls),
+    # Directors Web Services
+    path('ws/directors/', views.director_list),
+    path('ws/director/<int:director_id>/', views.director_detail),
+    # Movies Web Services
     path('ws/movies/<str:sort>', views.movie_list),
     path('ws/movie/<int:movie_id>', views.movie_detail),
     path('ws/movie', views.create_movie),

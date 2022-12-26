@@ -1,13 +1,21 @@
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
 
 
 # Create your models here.
+class Director(models.Model):
+    name = models.CharField(max_length=100)
+    age = models.IntegerField()
+
+    def __str__(self):
+        return self.name
+
+
 class Movie(models.Model):
     title = models.CharField(max_length=100)
+    director = models.ForeignKey(Director, on_delete=models.CASCADE)
     description = models.TextField()
-    director = models.CharField(max_length=100)
-    rate = models.FloatField()
+    rating = models.FloatField()
     realease_date = models.DateField()
 
     def __str__(self):
