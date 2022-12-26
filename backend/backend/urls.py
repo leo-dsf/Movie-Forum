@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
+from rest_framework import permissions
 
 from app import views
 
@@ -27,6 +28,7 @@ schema_view = get_schema_view(
         description="REST API for Movie Forum",
     ),
     public=True,
+    permission_classes=(permissions.AllowAny,),
 )
 
 urlpatterns = [
