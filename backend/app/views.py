@@ -29,13 +29,13 @@ def director_detail(request, director_id):
 
 # Movie Web Services
 @api_view(['GET'])
-def movie_list(request, sort):
+def movie_list(request, sort_by):
     """Get all movies in certain order"""
-    if sort == 'default':
+    if sort_by == 'default':
         movies = Movie.objects.all()
     else:
-        movies = Movie.objects.all().order_by('-%s', sort)
-    serializer = MovieSerializer(movies)
+        movies = Movie.objects.all().order_by('-' + sort_by)
+    serializer = MovieSerializer(movies, many=True)
     return Response(serializer.data)
 
 

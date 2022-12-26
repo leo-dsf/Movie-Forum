@@ -25,7 +25,7 @@ urlpatterns = [
     path('ws/directors/', views.director_list),
     path('ws/director/<int:director_id>/', views.director_detail),
     # Movies Web Services
-    path('ws/movies/<str:sort>', views.movie_list),
+    path('ws/movies/<str:sort_by>', views.movie_list),
     path('ws/movie/<int:movie_id>', views.movie_detail),
     path('ws/movie', views.create_movie),
     path('ws/movie/<int:movie_id>', views.update_movie),
