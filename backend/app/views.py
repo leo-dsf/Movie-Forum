@@ -27,6 +27,41 @@ def director_detail(request, director_id):
     return Response(serializer.data)
 
 
+@api_view(['POST'])
+def create_director(request):
+    """Create a director"""
+    serializer = DirectorSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['PUT'])
+def update_director(request, director_id):
+    """Update a director"""
+    try:
+        director = Director.objects.get(id=director_id)
+    except Director.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    serializer = DirectorSerializer(director, data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['DELETE'])
+def delete_director(request, director_id):
+    """Delete a director"""
+    try:
+        director = Director.objects.get(id=director_id)
+    except Director.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    director.delete()
+    return Response(status=status.HTTP_204_NO_CONTENT)
+
+
 # Movie Web Services
 @api_view(['GET'])
 def movie_list(request, sort_by):
@@ -84,6 +119,8 @@ def delete_movie(request, movie_id):
     movie.delete()
     return Response(status=status.HTTP_204_NO_CONTENT)
 
+
+#
 
 # User Web Services
 @api_view(['POST'])
