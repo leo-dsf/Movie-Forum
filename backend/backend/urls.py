@@ -33,14 +33,18 @@ urlpatterns = [
     # Admin
     path('admin/', admin.site.urls),
     # API Documentation
-    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0)),
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='swagger-schema'),
+    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='redoc-schema'),
     # Directors Web Services
     path('ws/directors/', views.director_list),
     path('ws/director/<int:director_id>/', views.director_detail),
+    path('ws/director/', views.create_director),
+    path('ws/director/<int:director_id>/', views.update_director),
+    path('ws/director/<int:director_id>/', views.delete_director),
     # Movies Web Services
-    path('ws/movies/<str:sort_by>', views.movie_list),
-    path('ws/movie/<int:movie_id>', views.movie_detail),
-    path('ws/movie', views.create_movie),
-    path('ws/movie/<int:movie_id>', views.update_movie),
-    path('ws/movie/<int:movie_id>', views.delete_movie),
+    path('ws/movies/<str:sort_by>/', views.movie_list),
+    path('ws/movie/<int:movie_id>/', views.movie_detail),
+    path('ws/movie/', views.create_movie),
+    path('ws/movie/<int:movie_id>/', views.update_movie),
+    path('ws/movie/<int:movie_id>/', views.delete_movie),
 ]

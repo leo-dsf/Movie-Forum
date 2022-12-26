@@ -120,8 +120,6 @@ def delete_movie(request, movie_id):
     return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-#
-
 # User Web Services
 @api_view(['POST'])
 def register(request):
