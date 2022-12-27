@@ -16,7 +16,7 @@ class Movie(models.Model):
     director = models.ForeignKey(Director, on_delete=models.CASCADE)
     description = models.TextField()
     rating = models.FloatField()
-    realease_date = models.DateField()
+    release_date = models.DateField()
 
     def __str__(self):
         return self.title
