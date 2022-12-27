@@ -136,10 +136,14 @@ CORS_ORIGIN_ALLOW_ALL = True
 # Swagger
 SWAGGER_SETTINGS = {
     'SECURITY_DEFINITIONS': {
-        'api_key': {
+        'Basic': {
+            'type': 'basic'
+        },
+        'Bearer': {
             'type': 'apiKey',
-            'in': 'header',
-            'name': 'Authorization'
+            'name': 'Authorization',
+            'in': 'header'
         }
-    },
+    }
 }
+
