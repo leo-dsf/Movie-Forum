@@ -10,12 +10,12 @@ import {MatInputModule} from '@angular/material/input';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {RouterModule} from '@angular/router';
-import {MainComponent} from './main/main.component';
-import {HeaderComponent} from './header/header.component';
-import {SearchBarComponent} from './search-bar/search-bar.component';
-import {FooterComponent} from './footer/footer.component';
-import {RegisterComponent} from './register/register.component';
-import {MoviesComponent} from './movies/movies.component';
+import {MainComponent} from './components/main/main.component';
+import {HeaderComponent} from './components/header/header.component';
+import {SearchBarComponent} from './components/search-bar/search-bar.component';
+import {FooterComponent} from './components/footer/footer.component';
+import {RegisterComponent} from './components/register/register.component';
+import {MoviesComponent} from './components/movies/movies.component';
 
 
 @NgModule({
