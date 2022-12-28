@@ -94,6 +94,15 @@ def movie_list(request, sort_by):
 
 @api_view(['GET'])
 @permission_classes([AllowAny])
+def movie_search(request, search_query):
+    """Search for a movie by title"""
+    movies = Movie.objects.filter(title__icontains=search_query)
+    serializer = MovieSerializer(movies, many=True)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
 def movie_detail(request, movie_id):
     """Get a movie by id"""
     try:

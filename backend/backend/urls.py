@@ -50,6 +50,7 @@ urlpatterns = [
                   path('ws/director/<int:director_id>/', views.delete_director, name='delete-director'),
                   # Movies Web Services
                   path('ws/movies/<str:sort_by>/', views.movie_list, name='movie-list'),
+                  path('ws/movies/search/<str:search_query>/', views.movie_search, name='movie-search'),
                   path('ws/movie/<int:movie_id>/', views.movie_detail, name='movie-detail'),
                   path('ws/movie/', views.create_movie, name='create-movie'),
                   path('ws/movie/<int:movie_id>/', views.update_movie, name='update-movie'),
