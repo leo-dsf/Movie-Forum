@@ -7,18 +7,20 @@ from app.models import Director, Movie, Review
 
 class DirectorSerializer(serializers.ModelSerializer):
     movies = serializers.PrimaryKeyRelatedField(many=True, queryset=Movie.objects.all())
+    image_url = serializers.ImageField(required=False)
 
     class Meta:
         model = Director
-        fields = ('id', 'name', 'age', 'movies')
+        fields = ('id', 'name', 'age', 'movies', 'image_url')
 
 
 class MovieSerializer(serializers.ModelSerializer):
     director = serializers.PrimaryKeyRelatedField(queryset=Director.objects.all())
+    image_url = serializers.ImageField(required=False)
 
     class Meta:
         model = Movie
-        fields = ('id', 'title', 'director', 'description', 'rating', 'release_date')
+        fields = ('id', 'title', 'director', 'description', 'rating', 'release_date', 'image_url')
 
 
 class ReviewSerializer(serializers.ModelSerializer):

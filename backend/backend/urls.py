@@ -13,6 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, re_path
 from drf_yasg import openapi
@@ -21,6 +22,7 @@ from knox import views as knox_views
 from rest_framework import permissions
 
 from app import views
+from backend import settings
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -33,33 +35,34 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-    # Admin
-    path('admin/', admin.site.urls),
-    # API Documentation
-    re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='json-schema'),
-    re_path(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='swagger-schema'),
-    re_path(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='redoc-schema'),
-    # Directors Web Services
-    path('ws/directors/', views.director_list, name='director-list'),
-    path('ws/director/<int:director_id>/', views.director_detail, name='director-detail'),
-    path('ws/director/', views.create_director, name='create-director'),
-    path('ws/director/<int:director_id>/', views.update_director, name='update-director'),
-    path('ws/director/<int:director_id>/', views.delete_director, name='delete-director'),
-    # Movies Web Services
-    path('ws/movies/<str:sort_by>/', views.movie_list, name='movie-list'),
-    path('ws/movie/<int:movie_id>/', views.movie_detail, name='movie-detail'),
-    path('ws/movie/', views.create_movie, name='create-movie'),
-    path('ws/movie/<int:movie_id>/', views.update_movie, name='update-movie'),
-    path('ws/movie/<int:movie_id>/', views.delete_movie, name='delete-movie'),
-    # Reviews Web Services
-    path('ws/reviews/<str:sort_by>/', views.review_list, name='review-list'),
-    path('ws/review/<int:review_id>/', views.review_detail, name='review-detail'),
-    path('ws/review/', views.create_review, name='create-review'),
-    path('ws/review/<int:review_id>/', views.delete_review, name='delete-review'),
-    # User Web Services
-    path('ws/user/', views.user_detail, name='user-detail'),
-    path('ws/register/', views.register, name='register'),
-    path('ws/login/', views.login, name='knox-login'),
-    path('ws/logout/', knox_views.LogoutView.as_view(), name='knox-logout'),
-    path('ws/logoutall/', knox_views.LogoutAllView.as_view(), name='knox-logoutall'),
-]
+                  # Admin
+                  path('admin/', admin.site.urls),
+                  # API Documentation
+                  re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0),
+                          name='json-schema'),
+                  re_path(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='swagger-schema'),
+                  re_path(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='redoc-schema'),
+                  # Directors Web Services
+                  path('ws/directors/', views.director_list, name='director-list'),
+                  path('ws/director/<int:director_id>/', views.director_detail, name='director-detail'),
+                  path('ws/director/', views.create_director, name='create-director'),
+                  path('ws/director/<int:director_id>/', views.update_director, name='update-director'),
+                  path('ws/director/<int:director_id>/', views.delete_director, name='delete-director'),
+                  # Movies Web Services
+                  path('ws/movies/<str:sort_by>/', views.movie_list, name='movie-list'),
+                  path('ws/movie/<int:movie_id>/', views.movie_detail, name='movie-detail'),
+                  path('ws/movie/', views.create_movie, name='create-movie'),
+                  path('ws/movie/<int:movie_id>/', views.update_movie, name='update-movie'),
+                  path('ws/movie/<int:movie_id>/', views.delete_movie, name='delete-movie'),
+                  # Reviews Web Services
+                  path('ws/reviews/<str:sort_by>/', views.review_list, name='review-list'),
+                  path('ws/review/<int:review_id>/', views.review_detail, name='review-detail'),
+                  path('ws/review/', views.create_review, name='create-review'),
+                  path('ws/review/<int:review_id>/', views.delete_review, name='delete-review'),
+                  # User Web Services
+                  path('ws/user/', views.user_detail, name='user-detail'),
+                  path('ws/register/', views.register, name='register'),
+                  path('ws/login/', views.login, name='knox-login'),
+                  path('ws/logout/', knox_views.LogoutView.as_view(), name='knox-logout'),
+                  path('ws/logoutall/', knox_views.LogoutAllView.as_view(), name='knox-logoutall'),
+              ] + static(settings.IMAGES_URL, document_root=settings.IMAGES_ROOT)

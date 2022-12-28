@@ -6,3 +6,4 @@ django-cors-headers==3.13.0
 drf-yasg==1.21.4
 drf-yasg[validation]==1.21.4
 django-rest-knox==4.2.0
+pillow==9.3.0
