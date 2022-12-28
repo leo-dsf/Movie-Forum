@@ -16,7 +16,8 @@ import {SearchBarComponent} from './search-bar/search-bar.component';
 import {FooterComponent} from './footer/footer.component';
 import {RegisterComponent} from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import {MoviesComponent} from './movies/movies.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { MovieComponent } from './movie/movie.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {MoviesComponent} from './movies/movies.component';
     FooterComponent,
     RegisterComponent,
     LoginComponent,
-    MoviesComponent,
+    ToolbarComponent,
+    MovieComponent,
 
   ],
   imports: [
@@ -40,7 +42,7 @@ import {MoviesComponent} from './movies/movies.component';
     MatToolbarModule,
     MatInputModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
