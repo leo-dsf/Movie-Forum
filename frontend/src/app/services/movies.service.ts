@@ -13,22 +13,26 @@ export class MoviesService {
   }
 
   getMovies(): Observable<any> {
-    return this.http.get(`movies/${this.baseUrl}/default/`);
+    return this.http.get(`${this.baseUrl}movies/default/`);
   }
 
   getMostReviewedMovies(): Observable<any> {
-    return this.http.get(`movies/${this.baseUrl}/reviews/`);
+    return this.http.get(`${this.baseUrl}movies/reviews/`);
   }
 
   getRecentMovies(): Observable<any> {
-    return this.http.get(`movies/${this.baseUrl}/release_date/`);
+    return this.http.get(`${this.baseUrl}movies/release_date/`);
   }
 
   getTopMovies(): Observable<any> {
-    return this.http.get(`movies/${this.baseUrl}/rating/`);
+    return this.http.get(`${this.baseUrl}movies/rating/`);
   }
 
   getMovie(id: number): Observable<any> {
-    return this.http.get(`movie/${this.baseUrl}/${id}/`);
+    return this.http.get(`${this.baseUrl}movie/${id}/`);
+  }
+
+  searchMovies(searchQuery: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}movies/search/${searchQuery}/`);
   }
 }
