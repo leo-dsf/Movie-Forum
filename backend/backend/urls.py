@@ -14,9 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
+from knox import views as knox_views
 from rest_framework import permissions
 
 from app import views
@@ -25,28 +26,40 @@ schema_view = get_schema_view(
     openapi.Info(
         title="Movie Forum API",
         default_version='v1',
-        description="REST API for Movie Forum",
+        description="Movie Forum REST API",
     ),
     public=True,
-    permission_classes=(permissions.AllowAny,),
+    permission_classes=[permissions.AllowAny],
 )
 
 urlpatterns = [
     # Admin
     path('admin/', admin.site.urls),
     # API Documentation
-    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='swagger-schema'),
-    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='redoc-schema'),
+    re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='json-schema'),
+    re_path(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='swagger-schema'),
+    re_path(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='redoc-schema'),
     # Directors Web Services
-    path('ws/directors/', views.director_list),
-    path('ws/director/<int:director_id>/', views.director_detail),
-    path('ws/director/', views.create_director),
-    path('ws/director/<int:director_id>/', views.update_director),
-    path('ws/director/<int:director_id>/', views.delete_director),
+    path('ws/directors/', views.director_list, name='director-list'),
+    path('ws/director/<int:director_id>/', views.director_detail, name='director-detail'),
+    path('ws/director/', views.create_director, name='create-director'),
+    path('ws/director/<int:director_id>/', views.update_director, name='update-director'),
+    path('ws/director/<int:director_id>/', views.delete_director, name='delete-director'),
     # Movies Web Services
-    path('ws/movies/<str:sort_by>/', views.movie_list),
-    path('ws/movie/<int:movie_id>/', views.movie_detail),
-    path('ws/movie/', views.create_movie),
-    path('ws/movie/<int:movie_id>/', views.update_movie),
-    path('ws/movie/<int:movie_id>/', views.delete_movie),
+    path('ws/movies/<str:sort_by>/', views.movie_list, name='movie-list'),
+    path('ws/movie/<int:movie_id>/', views.movie_detail, name='movie-detail'),
+    path('ws/movie/', views.create_movie, name='create-movie'),
+    path('ws/movie/<int:movie_id>/', views.update_movie, name='update-movie'),
+    path('ws/movie/<int:movie_id>/', views.delete_movie, name='delete-movie'),
+    # Reviews Web Services
+    path('ws/reviews/<str:sort_by>/', views.review_list, name='review-list'),
+    path('ws/review/<int:review_id>/', views.review_detail, name='review-detail'),
+    path('ws/review/', views.create_review, name='create-review'),
+    path('ws/review/<int:review_id>/', views.delete_review, name='delete-review'),
+    # User Web Services
+    path('ws/user/', views.user_detail, name='user-detail'),
+    path('ws/register/', views.register, name='register'),
+    path('ws/login/', views.login, name='knox-login'),
+    path('ws/logout/', knox_views.LogoutView.as_view(), name='knox-logout'),
+    path('ws/logoutall/', knox_views.LogoutAllView.as_view(), name='knox-logoutall'),
 ]
