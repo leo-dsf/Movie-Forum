@@ -1,0 +1,31 @@
+<div class="container" style="margin-top: 100px">
+  <div class="row">
+    <div class="col-lg-6 mx-auto">
+      <div class="card card-body">
+        <form action="." method="post" class="form-horizontal">
+          <h1 style="color:black; text-align: center; margin-top: 10px">Log In</h1>
+          <hr />
+          <div class="form-group" style="color:black; text-align: left; font-weight: bolder">
+            {{ form.username.label_tag }}
+            <div class="col-lg-12">
+              {{ form.username }}
+            </div>
+          </div>
+          <div class="form-group" style="color:black; text-align: left; font-weight: bolder">
+            {{ form.password.label_tag }}
+            <div class="col-lg-12">
+              {{ form.password }}
+            </div>
+          </div>
+          <div class="form-group" >
+            <div class="col-lg-12">
+              <input  type="hidden" name="next" value="/" style="color:white"/>
+              <input type="submit" value="Log in" class="btn btn-default" style="color:white; width: 100%"/>
+            </div>
+          </div>
+          <p *ngIf="failure" class="validation-summary-errors" style="color:red">Please enter a correct user name and password.</p>
+        </form>
+        <p style="color:white; text-align: center"><a href="/register" >No account? Register here!</a></p>
+      </div>
+    </div></div>
+</div>
