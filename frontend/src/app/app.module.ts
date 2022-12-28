@@ -16,6 +16,7 @@ import {SearchBarComponent} from './search-bar/search-bar.component';
 import {FooterComponent} from './footer/footer.component';
 import {RegisterComponent} from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import {MoviesComponent} from './movies/movies.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { LoginComponent } from './login/login.component';
     FooterComponent,
     RegisterComponent,
     LoginComponent,
+    MoviesComponent,
 
   ],
   imports: [
