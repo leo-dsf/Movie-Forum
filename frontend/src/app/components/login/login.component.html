@@ -6,12 +6,12 @@
 
   <label for="password">Password</label>
   <input #password id="password" name="password" placeholder="Password" type="password">
-  <p *ngIf="failure" class="validation-summary-errors">
+  <p *ngIf="failure" class="validation-summary-errors" style="color: red">
     Please enter a correct user name and password.
   </p>
 
   <button [disabled]="!loginForm.form.valid" type="submit">Log In</button>
   <div class="register">
-    <div>No account? Register here!</div>
+    <a routerLink="/register">No account? Register here!</a>
   </div>
 </form>

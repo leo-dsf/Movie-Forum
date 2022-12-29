@@ -3,30 +3,32 @@
     <div class="col-lg-6 mx-auto">
       <div class="card card-body">
         <div class="container">
-          <form [formGroup]="myForm">
+          <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
             <div class="first_name">
-            <label for="first_name"><b>First Name</b></label>
-            <input class="form-control" formControlName="first_name" id="first_name" name="first_name" placeholder="Enter First Name"
-                    type="text">
-                    <mat-error *ngIf="first_name && first_name.invalid && first_name.touched">
-                      Your first name is empty
-                    </mat-error>
+              <label for="first_name"><b>First Name</b></label>
+              <input class="form-control" formControlName="first_name" id="first_name" name="first_name"
+                     placeholder="Enter First Name"
+                     type="text">
+              <mat-error *ngIf="first_name && first_name.invalid && first_name.touched">
+                Your first name is empty
+              </mat-error>
             </div>
             <div class="last_name">
-            <label for="last_name"><b>Last Name</b></label>
-            <input class="form-control" formControlName="last_name" id="last_name" name="last_name" placeholder="Enter Last Name" type="text">
-            <mat-error *ngIf="last_name && last_name.invalid && last_name.touched">
-              Your last name is empty
-            </mat-error>
+              <label for="last_name"><b>Last Name</b></label>
+              <input class="form-control" formControlName="last_name" id="last_name" name="last_name"
+                     placeholder="Enter Last Name" type="text">
+              <mat-error *ngIf="last_name && last_name.invalid && last_name.touched">
+                Your last name is empty
+              </mat-error>
             </div>
-            
+
             <div>
-            <label for="username"><b>Username</b></label>
-            <input formControlName="username" name="username" placeholder="Enter username" required type="text">
-            <mat-error *ngIf="username && username.invalid && username.touched">
-              Your username is not valid
-            </mat-error>
-          </div>
+              <label for="username"><b>Username</b></label>
+              <input formControlName="username" name="username" placeholder="Enter username" required type="text">
+              <mat-error *ngIf="username && username.invalid && username.touched">
+                Your username is not valid
+              </mat-error>
+            </div>
 
             <br>
 
@@ -44,13 +46,10 @@
             </mat-error>
             <br>
             <button type="submit">Register</button>
-            <!--<label>
-
-            <button class="btn" type="submit">Register</button>
-            <label>
-              <input checked="checked" name="remember" type="checkbox"> Remember me
-            </label>-->
           </form>
+          <div>
+            <a routerLink="/login">Already have an account? Login here!</a>
+          </div>
         </div>
       </div>
     </div>

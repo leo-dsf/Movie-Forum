@@ -1,1 +1,21 @@
-<h1>Movies Page</h1>
+<ng-container>
+  <div class="row">
+    <div class="col-md-2" *ngFor="let movie of movies">
+      <div [routerLink]="['/movies/', movie.id]">
+        <div class="listing-item-style">
+          <div class="overlay">
+            <div class="hover"><i class="material-icons">play_arrow</i> PLAY NOW</div>
+          </div>
+          <img *ngIf="movie?.image_url" src="http://127.0.0.1:8000/{{movie.image_url}}"
+               [alt]="movie.title">
+          <img *ngIf="!movie?.image_url"
+               [alt]="movie.title">
+          <h6>{{ movie?.title }}</h6>
+          <p class="rate"><i class="material-icons">star</i><span>{{movie?.rating}}</span> /10</p>
+          <p class="year"><span>{{movie?.release_date | date: 'yyyy'}}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
