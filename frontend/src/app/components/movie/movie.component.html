@@ -1,6 +1,7 @@
 <div class="movie">
-    <div class="movie-image"><a href="">
-        <img src="../../assets/images/ice-age.jpg" alt="Imagem"/></a></div>
+    <div class="movie-image">
+        <img *ngIf="movie?.image_url" src="http://127.0.0.1:8000/{{movie.image_url}}" [alt]="movie.title">
+    </div>
     <div class="rating">
         <p>5 ⭐</p>
         <span class="comments">´10</span></div>
