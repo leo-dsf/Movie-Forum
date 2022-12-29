@@ -1,4 +1,19 @@
-<div class="container" style="margin-top: 100px">
-    
+<body>
+<form #loginForm="ngForm" (ngSubmit)="onSubmit(username.value, password.value)" )>
+  <h3>Login Here</h3>
 
-</div>
+  <label for="username">Username</label>
+  <input #username id="username" name="username" ngModel placeholder="Username" required type="text">
+
+  <label for="password">Password</label>
+  <input #password id="password" name="password" placeholder="Password" type="password">
+  <p *ngIf="failure" class="validation-summary-errors">
+    Please enter a correct user name and password.
+  </p>
+
+  <button [disabled]="!loginForm.form.valid" ] type="submit">Log In</button>
+  <div class="register">
+    <div>No account? Register here!</div>
+  </div>
+</form>
+</body>
