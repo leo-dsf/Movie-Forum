@@ -16,10 +16,9 @@ import {HeaderComponent} from './components/header/header.component';
 import {SearchBarComponent} from './components/search-bar/search-bar.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {RegisterComponent} from './components/register/register.component';
-import { LoginComponent } from './login/login.component';
-import { ToolbarComponent } from './toolbar/toolbar.component';
-import { MovieComponent } from './components/movie/movie.component';
-import { ReviewComponent } from './review/review.component';
+import {ToolbarComponent} from './components/toolbar/toolbar.component';
+import {MovieComponent} from './components/movie/movie.component';
+import {ReviewComponent} from './components/review/review.component';
 import {LoginComponent} from './components/login/login.component';
 import {InterceptorService} from "./services/interceptor/interceptor.service";
 import {AuthorizationService} from "./services/authorization/authorization.service";
@@ -38,7 +37,6 @@ import {AuthorizationService} from "./services/authorization/authorization.servi
     MovieComponent,
     ReviewComponent,
     LoginComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -49,7 +47,15 @@ import {AuthorizationService} from "./services/authorization/authorization.servi
     MatToolbarModule,
     MatInputModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule,
+  ], providers: [
+    AuthorizationService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
