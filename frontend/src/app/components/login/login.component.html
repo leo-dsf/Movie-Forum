@@ -1,5 +1,4 @@
-<body>
-<form #loginForm="ngForm" (ngSubmit)="onSubmit(username.value, password.value)" )>
+<form #loginForm="ngForm" (ngSubmit)="onSubmit(username.value, password.value)">
   <h3>Login Here</h3>
 
   <label for="username">Username</label>
@@ -11,9 +10,8 @@
     Please enter a correct user name and password.
   </p>
 
-  <button [disabled]="!loginForm.form.valid" ] type="submit">Log In</button>
+  <button [disabled]="!loginForm.form.valid" type="submit">Log In</button>
   <div class="register">
     <div>No account? Register here!</div>
   </div>
 </form>
-</body>
