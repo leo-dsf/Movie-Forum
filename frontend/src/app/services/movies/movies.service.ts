@@ -38,7 +38,7 @@ export class MoviesService {
   }
 
   getMovie(id: number): Observable<Movie> {
-    const url: string = `${this.baseUrl}movies/${id}/`;
+    const url: string = `${this.baseUrl}movie/${id}/`;
     return this.http.get<Movie>(url);
   }
 
