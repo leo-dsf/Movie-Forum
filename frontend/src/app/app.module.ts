@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
@@ -17,7 +17,9 @@ import {SearchBarComponent} from './components/search-bar/search-bar.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {RegisterComponent} from './components/register/register.component';
 import {MoviesComponent} from './components/movies/movies.component';
-import { LoginComponent } from './components/login/login.component';
+import {LoginComponent} from './components/login/login.component';
+import {InterceptorService} from "./services/interceptor/interceptor.service";
+import {AuthorizationService} from "./services/authorization/authorization.service";
 
 
 @NgModule({
@@ -44,7 +46,13 @@ import { LoginComponent } from './components/login/login.component';
     MatDialogModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthorizationService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {AuthorizationService} from "../../services/authorization/authorization.service";
 import {Router} from "@angular/router";
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -8,9 +9,9 @@ import {Router} from "@angular/router";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  public failure: boolean;
   private authorizationService: AuthorizationService;
   private router: Router;
-  private failure: boolean;
 
   constructor(authorizationService: AuthorizationService, router: Router) {
     this.authorizationService = authorizationService;
@@ -22,7 +23,7 @@ export class LoginComponent {
     this.authorizationService.login(username, password).subscribe((data: any) => {
         localStorage.setItem('token', data.token);
         this.router.navigate(['/']);
-      }, error => {
+      }, (error: HttpErrorResponse) => {
         this.failure = true;
       }
     );

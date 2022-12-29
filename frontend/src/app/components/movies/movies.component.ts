@@ -1,22 +1,25 @@
 import {Component, OnInit} from '@angular/core';
+import {MoviesService} from "../../services/movies/movies.service";
+import {Movie} from "../../models/movie";
+
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.css']
 })
 export class MoviesComponent implements OnInit {
-  responsiveOptions: any;
-  searchQuery: string;
-  searchResults: any;
+  private moviesService: MoviesService;
+  movies: Movie[];
 
-  constructor(private movieService: MovieService) {
-
+  constructor(moviesService: MoviesService) {
+    this.moviesService = moviesService;
+    this.movies = [];
   }
 
   ngOnInit() {
-    this.movieService.getMovies().subscribe((data: any) =>{
-      this.searchResults = data.results;
-      console.log(this.searchResults);
+    this.moviesService.getMovies().subscribe((data: Movie[]) => {
+      this.movies = data;
+      console.log(this.movies);
     })
   }
 }
