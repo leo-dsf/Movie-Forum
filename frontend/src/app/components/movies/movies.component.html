@@ -6,7 +6,7 @@
           <div class="overlay">
             <div class="hover"><i class="material-icons">play_arrow</i> PLAY NOW</div>
           </div>
-          <img *ngIf="movie?.image_url" src="http://127.0.0.1:8000/{{movie.image_url}}"
+          <img *ngIf="movie?.image_url" src="http://127.0.0.1:8000{{movie.image_url}}"
                [alt]="movie.title">
           <img *ngIf="!movie?.image_url"
                [alt]="movie.title">

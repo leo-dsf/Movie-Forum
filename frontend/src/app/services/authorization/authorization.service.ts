@@ -37,7 +37,7 @@ export class AuthorizationService {
 
   logout(): void {
     const url: string = `${this.baseUrl}logout/`;
-    this.http.post(url, null, httpOptions);
+    this.http.post(url, httpOptions);
     localStorage.removeItem('token');
     localStorage.clear();
   }
