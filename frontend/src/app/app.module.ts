@@ -22,6 +22,7 @@ import {ReviewComponent} from './components/review/review.component';
 import {LoginComponent} from './components/login/login.component';
 import {InterceptorService} from "./services/interceptor/interceptor.service";
 import {AuthorizationService} from "./services/authorization/authorization.service";
+import { MainMoviesComponent } from './components/main-movies/main-movies.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import {AuthorizationService} from "./services/authorization/authorization.servi
     MovieComponent,
     ReviewComponent,
     LoginComponent,
+    MainMoviesComponent,
   ],
   imports: [
     BrowserModule,

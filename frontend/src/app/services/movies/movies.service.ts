@@ -32,6 +32,11 @@ export class MoviesService {
     return this.http.get<Movie[]>(url);
   }
 
+  getRandomMovies(): Observable<Movie[]> {
+    const url: string = `${this.baseUrl}movies/`;
+    return this.http.get<Movie[]>(url);
+  }
+
   getTopMovies(): Observable<Movie[]> {
     const url: string = `${this.baseUrl}movies/rating/`;
     return this.http.get<Movie[]>(url);

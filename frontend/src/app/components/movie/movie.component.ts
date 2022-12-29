@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MoviesService } from 'src/app/services/movies/movies.service';
 
 @Component({
@@ -8,22 +8,15 @@ import { MoviesService } from 'src/app/services/movies/movies.service';
 })
 export class MovieComponent {
 
-  movie: any;
+  @Input() img_url: string | undefined;
+  @Input() rating: number | undefined;
 
-  constructor(private service:MoviesService) {}
+
+  constructor() {}
 
   ngOnInit() {
     //console.log(this.service.getMovie(13));
-    this.service.getMovie(1).subscribe(response => {
-      this.movie = response;
-
-      //console.log(this.movieInfo["image_url"])
-
-      //this.imageUrl = this.movieInfo["image_url"]
-      //this.imageUrl = 'http://127.0.0.1:8000/ws/images/movie/the-godfather.jpg'
-      //console.log('images/movie/the-godfather.jpg');
-
-    })
+    
   }
 
 }

@@ -1,10 +1,8 @@
 <div class="movie">
     <div class="movie-image">
-        <img *ngIf="movie?.image_url" src="http://127.0.0.1:8000/{{movie.image_url}}" [alt]="movie.title">
+        <img *ngIf="img_url" src="http://127.0.0.1:8000{{img_url}}" alt="p">
     </div>
     <div class="rating">
-        <p>5 ⭐</p>
+        <p> {{ rating}} ⭐</p>
         <span class="comments">´10</span></div>
 </div>
-
-

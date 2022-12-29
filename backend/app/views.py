@@ -9,6 +9,8 @@ from app.models import Director, Movie, Review
 from app.serializers import DirectorSerializer, MovieSerializer, ReviewSerializer, RegisterSerializer, LoginSerializer, \
     UserSerializer
 
+import random
+
 
 # Create your views here.
 # Director Web Services
@@ -90,6 +92,18 @@ def movie_list(request, sort_by):
         movies = Movie.objects.all().order_by('-' + sort_by)
     serializer = MovieSerializer(movies, many=True)
     return Response(serializer.data)
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def random_movies(request):
+    """Get 5 random movies"""
+    movies = list(Movie.objects.all())
+    randomMovies = random.sample(movies, 5)
+
+    serializer = MovieSerializer(randomMovies, many=True)
+
+    return Response(serializer.data)
+
 
 
 @api_view(['GET'])
