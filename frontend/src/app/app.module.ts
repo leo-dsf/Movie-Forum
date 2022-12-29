@@ -18,6 +18,7 @@ import {RegisterComponent} from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { MovieComponent } from './movie/movie.component';
+import { ReviewComponent } from './review/review.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { MovieComponent } from './movie/movie.component';
     LoginComponent,
     ToolbarComponent,
     MovieComponent,
+    ReviewComponent,
 
   ],
   imports: [
