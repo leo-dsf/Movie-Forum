@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-bar',
@@ -7,4 +9,12 @@ import {Component} from '@angular/core';
 })
 export class SearchBarComponent {
 
+  constructor(private router: Router) { }
+
+  submit(search:NgForm){
+ 
+
+    this.router.navigate(['movielist/search/' + search.value["search_form"]]);
+
+  }  
 }

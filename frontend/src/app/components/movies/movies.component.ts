@@ -51,6 +51,11 @@ export class MoviesComponent implements OnInit {
       
             case "MostReviews": 
               return this.moviesService.getMostReviewedMovies(); 
+
+            case null: 
+              let word = params.get("word"); 
+              if (word != null) 
+                return this.moviesService.searchMovies(word);  
           }
 
           return this.moviesService.getMovies();

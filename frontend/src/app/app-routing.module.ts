@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: 'session', component: SessionComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'movielist', component: MovieListComponent, children:[{path: ':type', component: MoviesComponent}]},
+  {path: 'movielist', component: MovieListComponent, children:[{path: ':type', component: MoviesComponent}, {path: 'search/:word', component: MoviesComponent}]},
   {path: 'movies/:movie_id', component: MovieDetailsComponent}
 ];
 

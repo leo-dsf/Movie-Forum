@@ -1,7 +1,7 @@
 <div id="search">
-  <form accept-charset="utf-8" action="" method="post">
+  <form  #search="ngForm" accept-charset="utf-8" action="" method="post" (ngSubmit) = "submit(search)">
     <label for="search_form">Search here</label>
-    <input id="name" name="search_form" type="text">
+    <input id="name" name="search_form" type="text" ngModel>
     <input class="search-button" type="submit"/>
   </form>
 </div>
