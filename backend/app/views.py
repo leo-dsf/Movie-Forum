@@ -98,11 +98,8 @@ def movie_list(request, sort_by):
 @permission_classes([AllowAny])
 def random_movies(request):
     """Get 5 random movies"""
-    movies = list(Movie.objects.all())
-    randomMovies = random.sample(movies, 5)
-
-    serializer = MovieSerializer(randomMovies, many=True)
-
+    movies = random.sample(list(Movie.objects.all()), 5)
+    serializer = MovieSerializer(movies, many=True)
     return Response(serializer.data)
 
 
