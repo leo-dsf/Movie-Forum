@@ -1,3 +1,5 @@
+import random
+
 from django.db.models import Count
 from knox.models import AuthToken
 from rest_framework import status
@@ -8,8 +10,6 @@ from rest_framework.response import Response
 from app.models import Director, Movie, Review
 from app.serializers import DirectorSerializer, MovieSerializer, ReviewSerializer, RegisterSerializer, LoginSerializer, \
     UserSerializer
-
-import random
 
 
 # Create your views here.
@@ -93,6 +93,7 @@ def movie_list(request, sort_by):
     serializer = MovieSerializer(movies, many=True)
     return Response(serializer.data)
 
+
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def random_movies(request):
@@ -103,7 +104,6 @@ def random_movies(request):
     serializer = MovieSerializer(randomMovies, many=True)
 
     return Response(serializer.data)
-
 
 
 @api_view(['GET'])
