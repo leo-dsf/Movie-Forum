@@ -35,10 +35,8 @@ export class AuthorizationService {
     return localStorage.getItem('token');
   }
 
-  logout(): void {
+  logout() {
     const url: string = `${this.baseUrl}logout/`;
-    this.http.post(url, httpOptions);
-    localStorage.removeItem('token');
-    localStorage.clear();
+    return this.http.post(url, httpOptions);
   }
 }

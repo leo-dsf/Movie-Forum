@@ -27,7 +27,8 @@ import { SessionComponent } from './components/session/session.component';
 import { MainMoviesComponent } from './components/main-movies/main-movies.component'; 
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
-import { MovieListToolbarComponent } from './components/movie-list-toolbar/movie-list-toolbar.component'; 
+import { MovieListToolbarComponent } from './components/movie-list-toolbar/movie-list-toolbar.component';
+import { ReviewsComponent } from './components/reviews/reviews.component'; 
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { MovieListToolbarComponent } from './components/movie-list-toolbar/movie
     SessionComponent,
     MovieDetailsComponent,
     MovieListComponent,
-    MovieListToolbarComponent 
+    MovieListToolbarComponent,
+    ReviewsComponent 
   ],
   imports: [
     BrowserModule,
