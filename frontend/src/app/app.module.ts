@@ -24,7 +24,8 @@ import {InterceptorService} from "./services/interceptor/interceptor.service";
 import {AuthorizationService} from "./services/authorization/authorization.service";
 import {MoviesComponent} from "./components/movies/movies.component";
 import { SessionComponent } from './components/session/session.component';
-import { MainMoviesComponent } from './components/main-movies/main-movies.component';
+import { MainMoviesComponent } from './components/main-movies/main-movies.component'; 
+import { MovieDetailsComponent } from './components/movie-details/movie-details.component'; 
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { MainMoviesComponent } from './components/main-movies/main-movies.compon
     LoginComponent,
     MainMoviesComponent,
     MoviesComponent,
-    SessionComponent
+    SessionComponent,
+    MovieDetailsComponent 
   ],
   imports: [
     BrowserModule,
