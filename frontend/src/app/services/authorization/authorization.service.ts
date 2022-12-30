@@ -17,7 +17,7 @@ export class AuthorizationService {
     this.baseUrl = 'http://127.0.0.1:8000/ws/';
   }
 
-  register(user: User): Observable<any> {
+  register(user: any): Observable<any> {
     const url: string = `${this.baseUrl}register/`;
     return this.http.post<any>(url, user, httpOptions);
   }
@@ -37,7 +37,7 @@ export class AuthorizationService {
 
   logout(): void {
     const url: string = `${this.baseUrl}logout/`;
-    this.http.post(url, null, httpOptions);
+    this.http.post(url, httpOptions);
     localStorage.removeItem('token');
     localStorage.clear();
   }

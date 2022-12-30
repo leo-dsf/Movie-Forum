@@ -18,7 +18,7 @@ export class MoviesService {
   }
 
   getMovies(): Observable<Movie[]> {
-    const url = `${this.baseUrl}movies/`;
+    const url = `${this.baseUrl}movies/default/`;
     return this.http.get<Movie[]>(url);
   }
 

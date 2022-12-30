@@ -22,6 +22,8 @@ import {ReviewComponent} from './components/review/review.component';
 import {LoginComponent} from './components/login/login.component';
 import {InterceptorService} from "./services/interceptor/interceptor.service";
 import {AuthorizationService} from "./services/authorization/authorization.service";
+import {MoviesComponent} from "./components/movies/movies.component";
+import { SessionComponent } from './components/session/session.component';
 import { MainMoviesComponent } from './components/main-movies/main-movies.component';
 
 
@@ -39,6 +41,8 @@ import { MainMoviesComponent } from './components/main-movies/main-movies.compon
     ReviewComponent,
     LoginComponent,
     MainMoviesComponent,
+    MoviesComponent,
+    SessionComponent
   ],
   imports: [
     BrowserModule,

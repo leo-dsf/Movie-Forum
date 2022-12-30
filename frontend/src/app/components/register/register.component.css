@@ -36,7 +36,7 @@ input[type=text], input[type=password] {
 
 /* Set a style for all buttons */
 button {
-  background-color: #04AA6D;
+  background-color: red;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -94,12 +94,14 @@ label {
 .first_name {
   width: 45%;
   display: inline-block;
+  color: black;
 }
 
 .last_name {
   width: 45%;
   float: right;
   display: inline-block;
+  color: black;
 }
 
 .container {

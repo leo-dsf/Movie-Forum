@@ -1,0 +1,7 @@
+<li *ngIf="user">
+  {{user.first_name + ' ' + user.last_name}}
+  <a [routerLink]="['/']" (click)="logout()">Logout</a>
+</li>
+<li *ngIf="!user">
+  <a [routerLink]="['/login']">Login</a>
+</li>
