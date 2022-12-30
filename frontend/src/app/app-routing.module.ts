@@ -12,7 +12,8 @@ const routes: Routes = [
   {path: 'session', component: SessionComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'movies', component: MoviesComponent, children:[{path: ':movie_id', component: MovieDetailsComponent}]}
+  {path: 'movies', component: MoviesComponent},
+  {path: 'movies/:movie_id', component: MovieDetailsComponent}
 ];
 
 @NgModule({
