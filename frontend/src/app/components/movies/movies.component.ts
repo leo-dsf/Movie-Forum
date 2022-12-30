@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {MoviesService} from "../../services/movies/movies.service";
 import {Movie} from "../../models/movie";
+import { switchMap } from 'rxjs/operators';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-movies',
@@ -8,18 +11,55 @@ import {Movie} from "../../models/movie";
   styleUrls: ['./movies.component.css']
 })
 export class MoviesComponent implements OnInit {
+  
   private moviesService: MoviesService;
-  movies: Movie[];
+  
 
-  constructor(moviesService: MoviesService) {
+  type: string | null;
+  movies$: Observable<Movie[]> | null;
+  
+  movies :Movie[] ;
+
+  constructor(private route: ActivatedRoute, moviesService: MoviesService) {
     this.moviesService = moviesService;
-    this.movies = [];
+    this.movies = []; 
+    this.type = "";
+    this.movies$ = null;
   }
 
   ngOnInit() {
-    this.moviesService.getMovies().subscribe((data: Movie[]) => {
-      this.movies = data;
-      console.log(this.movies);
-    })
+
+    console.log(this.route.paramMap)
+
+    this.movies$ = this.route.paramMap.pipe(
+      switchMap( 
+        params => { 
+          this.type = params.get("type");   
+
+          console.log(this.type) 
+
+          switch (this.type) {
+
+            case 'All': 
+              return this.moviesService.getMovies(); 
+            
+            case "Latest": 
+              return this.moviesService.getRecentMovies(); 
+      
+            case "TopRated": 
+              return this.moviesService.getTopMovies(); 
+      
+            case "MostReviews": 
+              return this.moviesService.getMostReviewedMovies(); 
+          }
+
+          return this.moviesService.getMovies();
+        }
+      )
+    );  
+ 
+     
   }
+ 
+
 }

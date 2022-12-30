@@ -25,7 +25,9 @@ import {AuthorizationService} from "./services/authorization/authorization.servi
 import {MoviesComponent} from "./components/movies/movies.component";
 import { SessionComponent } from './components/session/session.component';
 import { MainMoviesComponent } from './components/main-movies/main-movies.component'; 
-import { MovieDetailsComponent } from './components/movie-details/movie-details.component'; 
+import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
+import { MovieListComponent } from './components/movie-list/movie-list.component';
+import { MovieListToolbarComponent } from './components/movie-list-toolbar/movie-list-toolbar.component'; 
 
 
 @NgModule({
@@ -44,7 +46,9 @@ import { MovieDetailsComponent } from './components/movie-details/movie-details.
     MainMoviesComponent,
     MoviesComponent,
     SessionComponent,
-    MovieDetailsComponent 
+    MovieDetailsComponent,
+    MovieListComponent,
+    MovieListToolbarComponent 
   ],
   imports: [
     BrowserModule,

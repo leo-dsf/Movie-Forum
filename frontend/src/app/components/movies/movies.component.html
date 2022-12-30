@@ -1,8 +1,4 @@
-<div id="shell">
-  <app-header></app-header>
-  <app-toolbar></app-toolbar>
-  
-  <router-outlet></router-outlet>
+<div id="shell" *ngIf="movies$ | async as movies"> 
   
   <div id="main">
      
