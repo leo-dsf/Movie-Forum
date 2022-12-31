@@ -16,17 +16,18 @@ export class ReviewsComponent {
   public reviews: Review[];
   @Input() movieId: number | undefined;
   reviewForm!: FormGroup;
+  public activeUser: User | undefined;
+  public userReview: User[];
   private reviewsService: ReviewsService;
   private userService: UserService;
   private readonly user: Observable<User>;
-  public activeUser: User | undefined;
-  public userReview: User | undefined;
 
   constructor(reviewsService: ReviewsService, userService: UserService, private _form_builder: FormBuilder) {
     this.reviewsService = reviewsService;
     this.userService = userService;
     this.user = this.userService.getUser();
     this.reviews = [];
+    this.userReview = [];
   }
 
   ngOnInit() {
@@ -41,12 +42,18 @@ export class ReviewsComponent {
     });
     this.reviewsService.getReviews(this.movieId).subscribe((reviews: Review[]) => {
       this.reviews = reviews;
+      for (let review of this.reviews) {
+        this.userService.getUserById(review.user).subscribe((user: User) => {
+          this.userReview[review.user] =  user;
+        }
+        );
+      }
     });
   }
 
   onSubmit() {
     this.reviewsService.createReview(this.reviewForm.value).subscribe((data: any) => {
-      window.location.reload();
+        window.location.reload();
       }, (error: HttpErrorResponse) => {
         console.log(error);
       }
@@ -55,21 +62,10 @@ export class ReviewsComponent {
 
   deleteReview(reviewId: number) {
     this.reviewsService.deleteReview(reviewId).subscribe((data: any) => {
-      window.location.reload();
+        window.location.reload();
       }, (error: HttpErrorResponse) => {
         console.log(error);
       }
     );
-  }
-
-  // get the name of the user who wrote the review
-  getUser(userId: number) : string {
-    this.userService.getUserById(userId).subscribe((user: User) => {
-      this.userReview = user;
-    }, (error: HttpErrorResponse) => {
-      console.log(error);
-      }
-      );
-    return this.userReview?.first_name + ' ' + this.userReview?.last_name;
   }
 }
