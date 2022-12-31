@@ -48,7 +48,7 @@ def create_director(request):
     return Response(status=status.HTTP_401_UNAUTHORIZED)
 
 
-@api_view(['PUT'])
+@api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def update_director(request, director_id):
     """Update a director"""
@@ -65,7 +65,7 @@ def update_director(request, director_id):
     return Response(status=status.HTTP_401_UNAUTHORIZED)
 
 
-@api_view(['DELETE'])
+@api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def delete_director(request, director_id):
     """Delete a director"""
@@ -137,7 +137,7 @@ def create_movie(request):
     return Response(status=status.HTTP_401_UNAUTHORIZED)
 
 
-@api_view(['PUT'])
+@api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def update_movie(request, movie_id):
     """Update a movie"""
@@ -154,7 +154,7 @@ def update_movie(request, movie_id):
     return Response(status=status.HTTP_403_FORBIDDEN)
 
 
-@api_view(['DELETE'])
+@api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def delete_movie(request, movie_id):
     """Delete a movie"""
@@ -204,7 +204,7 @@ def create_review(request):
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(['DELETE'])
+@api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def delete_review(request, review_id):
     """Delete a review"""
@@ -251,7 +251,7 @@ def login(request):
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(['PUT'])
+@api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def update_user(request):
     """Update a user"""
@@ -262,7 +262,7 @@ def update_user(request):
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(['DELETE'])
+@api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def delete_user(request):
     """Delete a user"""
