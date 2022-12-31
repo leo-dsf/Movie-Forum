@@ -2,27 +2,28 @@
     <app-header></app-header>
     <app-toolbar></app-toolbar>
 
+    <div *ngIf="movie!=null && director!=null">
+        <div id="main">
+            <div class="row">
+                <div class="movie">
 
-    <div *ngIf="movie!=null" id="main">
-        <div class="row">
-            <div class="movie">
+                    <div class="movie-image">
+                        <img *ngIf="movie.image_url" src="http://127.0.0.1:8000{{movie.image_url}}" alt="p">
+                    </div>
 
-                <div class="movie-image">
-                    <img *ngIf="movie.image_url" src="http://127.0.0.1:8000{{movie.image_url}}" alt="p">
+                    <div class="rating">
+                        <p> {{ movie.rating}} ⭐</p>
+                        <span class="comments">´10</span>
+                    </div>
                 </div>
+                <h1>{{movie.title}}</h1>
+                <h1>Desc: {{movie.description}}</h1>
+                <h1>Realease Date: {{movie.release_date}}</h1>
+                <h1>Director: {{director.name}}</h1>
 
-                <div class="rating">
-                    <p> {{ movie.rating}} ⭐</p>
-                    <span class="comments">´10</span>
-                </div>
+
             </div>
-            <h1>{{movie.title}}</h1>
-            <h1> Desc: {{movie.description}}</h1>
-            <h1>Realease Date: {{movie.release_date}}</h1>
-
-
         </div>
+        <app-reviews [movieId]="movie.id"></app-reviews>
     </div>
-  <app-reviews [movieId]="movie.id"></app-reviews>
-
   </div>
