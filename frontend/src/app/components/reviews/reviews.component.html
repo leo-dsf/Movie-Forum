@@ -16,7 +16,7 @@
 <div *ngFor="let review of reviews" class="container">
   <div class="row">
     <div style="display: inline-block">
-      <h1 style="color: black">{{review.user}}</h1>
+      <h1 style="color: black">{{getUser(review.user)}}</h1>
     </div>
     <div class="row">
       <textarea>{{ review.review }}</textarea>

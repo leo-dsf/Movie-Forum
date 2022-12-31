@@ -62,10 +62,12 @@ urlpatterns = [
                   path('ws/review/', views.create_review, name='create-review'),
                   path('ws/delete_review/<int:review_id>/', views.delete_review, name='delete-review'),
                   # User Web Services
+                  path('ws/user/<int:user_id>/', views.get_user, name='get-user'),
                   path('ws/user/', views.user_detail, name='user-detail'),
                   path('ws/register/', views.register, name='register'),
                   path('ws/login/', views.login, name='knox-login'),
                   path('ws/logout/', knox_views.LogoutView.as_view(), name='knox-logout'),
                   path('ws/logoutall/', knox_views.LogoutAllView.as_view(), name='knox-logoutall'),
+                  path('ws/update_user/', views.update_user, name='update-user'),
                   path('ws/delete_user/', views.delete_user, name='delete-user'),
               ] + static(settings.IMAGES_URL, document_root=settings.IMAGES_ROOT)

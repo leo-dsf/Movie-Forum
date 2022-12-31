@@ -20,6 +20,7 @@ export class ReviewsComponent {
   private userService: UserService;
   private readonly user: Observable<User>;
   public activeUser: User | undefined;
+  public userReview: User | undefined;
 
   constructor(reviewsService: ReviewsService, userService: UserService, private _form_builder: FormBuilder) {
     this.reviewsService = reviewsService;
@@ -59,5 +60,16 @@ export class ReviewsComponent {
         console.log(error);
       }
     );
+  }
+
+  // get the name of the user who wrote the review
+  getUser(userId: number) : string {
+    this.userService.getUserById(userId).subscribe((user: User) => {
+      this.userReview = user;
+    }, (error: HttpErrorResponse) => {
+      console.log(error);
+      }
+      );
+    return this.userReview?.first_name + ' ' + this.userReview?.last_name;
   }
 }

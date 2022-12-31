@@ -22,4 +22,9 @@ export class UserService {
     const url: string = `${this.baseUrl}user/`;
     return this.http.get<User>(url);
   }
+
+  getUserById(userId: number): Observable<User> {
+    const url: string = `${this.baseUrl}user/${userId}/`;
+    return this.http.get<User>(url);
+  }
 }

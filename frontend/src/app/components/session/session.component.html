@@ -1,7 +1,7 @@
 <li *ngIf="user">
-  {{user.first_name + ' ' + user.last_name}}
-  <a [routerLink]="['/']" (click)="logout()">Logout</a>
+  <h3 style="color: white">{{user.first_name + ' ' + user.last_name}}</h3>
+  <a style="color: red" [routerLink]="['/']" (click)="logout()">Logout</a>
 </li>
 <li *ngIf="!user">
-  <a [routerLink]="['/login']">Login</a>
+  <a style="color: red" [routerLink]="['/login']">Login</a>
 </li>

@@ -58,12 +58,12 @@ export class MoviesService {
   }
 
   updateMovie(movie: Movie): Observable<Movie> {
-    const url: string = `${this.baseUrl}movie/${movie.id}/`;
-    return this.http.put<Movie>(url, movie, httpOptions);
+    const url: string = `${this.baseUrl}update_movie/${movie.id}/`;
+    return this.http.post<Movie>(url, movie, httpOptions);
   }
 
-  deleteMovie(id: number): Observable<Movie> {
-    const url: string = `${this.baseUrl}movie/${id}/`;
-    return this.http.delete<Movie>(url);
+  deleteMovie(id: number): Observable<any>{
+    const url: string = `${this.baseUrl}delete_movie/${id}/`;
+    return this.http.post<any>(url, httpOptions);
   }
 }

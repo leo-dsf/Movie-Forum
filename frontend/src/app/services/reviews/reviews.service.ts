@@ -33,7 +33,7 @@ export class ReviewsService {
   }
 
   deleteReview(id: number): Observable<any> {
-    const url: string = `${this.baseUrl}review/${id}/`;
-    return this.http.delete(url, httpOptions);
+    const url: string = `${this.baseUrl}delete_review/${id}/`;
+    return this.http.post<any>(url, httpOptions);
   }
 }

@@ -1,5 +1,6 @@
 import random
 
+from django.contrib.auth.models import User
 from django.db.models import Count
 from knox.models import AuthToken
 from rest_framework import status
@@ -216,6 +217,18 @@ def delete_review(request, review_id):
         return Response(status=status.HTTP_401_UNAUTHORIZED)
     review.delete()
     return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_user(request, user_id):
+    """Get a user by id"""
+    try:
+        user = User.objects.get(id=user_id)
+    except User.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    serializer = UserSerializer(user)
+    return Response(serializer.data)
 
 
 # User Web Services
