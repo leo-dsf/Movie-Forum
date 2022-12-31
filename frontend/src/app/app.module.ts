@@ -17,8 +17,7 @@ import {SearchBarComponent} from './components/search-bar/search-bar.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {RegisterComponent} from './components/register/register.component';
 import {ToolbarComponent} from './components/toolbar/toolbar.component';
-import {MovieComponent} from './components/movie/movie.component';
-import {ReviewComponent} from './components/review/review.component';
+import {MovieComponent} from './components/movie/movie.component'; 
 import {LoginComponent} from './components/login/login.component';
 import {InterceptorService} from "./services/interceptor/interceptor.service";
 import {AuthorizationService} from "./services/authorization/authorization.service";
@@ -41,8 +40,7 @@ import { ReviewsComponent } from './components/reviews/reviews.component';
     RegisterComponent,
     LoginComponent,
     ToolbarComponent,
-    MovieComponent,
-    ReviewComponent,
+    MovieComponent, 
     LoginComponent,
     MainMoviesComponent,
     MoviesComponent,
