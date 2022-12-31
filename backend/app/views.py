@@ -220,7 +220,7 @@ def delete_review(request, review_id):
 
 
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
+@permission_classes([AllowAny])
 def get_user(request, user_id):
     """Get a user by id"""
     try:
