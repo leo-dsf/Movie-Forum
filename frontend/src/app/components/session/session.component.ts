@@ -10,9 +10,9 @@ import {HttpErrorResponse} from "@angular/common/http";
   styleUrls: ['./session.component.css']
 })
 export class SessionComponent {
+  public user: User | undefined;
   private authorizationService: AuthorizationService;
   private userService: UserService;
-  public user: User | undefined;
 
   constructor(authorizationService: AuthorizationService, userService: UserService) {
     this.authorizationService = authorizationService;
