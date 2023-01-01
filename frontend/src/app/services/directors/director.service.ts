@@ -3,6 +3,10 @@ import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Director } from 'src/app/models/director';
 
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -22,6 +26,15 @@ export class DirectorService {
   getDirectors(): Observable<Director[]> {
     const url = `${this.baseUrl}directors/`;
     return this.http.get<Director[]>(url);
+  }
+
+  addDirector(director: any): Observable<Director> {
+    const url = `${this.baseUrl}director/`;
+    let formData = new FormData();
+    formData.append('name', director.name);
+    formData.append('age', director.age);
+    formData.append('image_url', director.image_url);
+    return this.http.post<Director>(url,formData);
   }
 }
 

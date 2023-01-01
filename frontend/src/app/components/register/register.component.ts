@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit {
   private authorizationService: AuthorizationService;
   private router: Router;
 
+
   constructor(authorizationService: AuthorizationService, router: Router, private _form_builder: FormBuilder) {
     this.authorizationService = authorizationService;
     this.router = router;

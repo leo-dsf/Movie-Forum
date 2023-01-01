@@ -32,11 +32,11 @@ import { AddMovieComponent } from './components/addmovie/add-movie.component';
 import {MatSelectModule} from "@angular/material/select";
 import { DirectorListComponent } from './components/director-list/director-list.component';
 import { DirectorsComponent } from './components/directors/directors.component';
-import { DirectorComponent } from './components/director/director.component'; 
-import { AdddirectorComponent } from './components/adddirector/adddirector.component'; 
+import { DirectorComponent } from './components/director/director.component';
 import { DirectorDetailsComponent } from './components/director-details/director-details.component';
-import { DirectorMoviesComponent } from './components/director-movies/director-movies.component'; 
-import { UpdateMovieComponent } from './components/update-movie/update-movie.component'; 
+import { DirectorMoviesComponent } from './components/director-movies/director-movies.component';
+import {AddDirectorComponent} from "./components/adddirector/add-director.component";
+import { UpdateMovieComponent } from './components/update-movie/update-movie.component';
 
 
 @NgModule({
@@ -61,12 +61,11 @@ import { UpdateMovieComponent } from './components/update-movie/update-movie.com
     AddMovieComponent,
     DirectorListComponent,
     DirectorsComponent,
-    DirectorComponent, 
-    AdddirectorComponent, 
+    DirectorComponent,
     DirectorDetailsComponent,
     DirectorMoviesComponent,
+    AddDirectorComponent,
     UpdateMovieComponent
- 
   ],
   imports: [
     BrowserModule,

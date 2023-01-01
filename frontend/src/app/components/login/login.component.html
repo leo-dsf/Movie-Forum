@@ -1,17 +1,32 @@
-<form #loginForm="ngForm" (ngSubmit)="onSubmit(username.value, password.value)">
-  <h3>Login Here</h3>
-
-  <label for="username">Username</label>
-  <input #username id="username" name="username" ngModel placeholder="Username" required type="text">
-
-  <label for="password">Password</label>
-  <input #password id="password" name="password" placeholder="Password" type="password">
-  <p *ngIf="failure" class="validation-summary-errors" style="color: red">
-    Please enter a correct user name and password.
-  </p>
-
-  <button [disabled]="!loginForm.form.valid" type="submit">Log In</button>
-  <div class="register">
-    <a routerLink="/register">No account? Register here!</a>
+<div id="shell">
+  <app-header></app-header>
+</div>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-6 mx-auto">
+      <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="container mt-5">
+          <form #loginForm="ngForm" (ngSubmit)="onSubmit(username.value, password.value)">
+            <div class="form-group">
+              <label for="username" style="color: black"><b>Username</b></label>
+              <input #username class="form-control" id="username" name="username" ngModel placeholder="Username" required type="text">
+            </div>
+            <div class="form-group">
+              <label for="password" style="color: black"><b>Password</b></label>
+              <input #password class="form-control" id="password" name="password" placeholder="Password" type="password">
+            </div>
+            <p *ngIf="failure" class="validation-summary-errors text-danger mb-3">
+              Please enter a correct user name and password.
+            </p>
+            <button type="submit" class="btn btn-primary btn-block">Log In</button>
+            <div class="text-center mt-3">
+              <a routerLink="/register">No account? Register here!</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
-</form>
+</div>
+
+
