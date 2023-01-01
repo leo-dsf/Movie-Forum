@@ -52,6 +52,8 @@ urlpatterns = [
                   path('ws/movies/<str:sort_by>/', views.movie_list, name='movie-list'),
                   path('ws/movies/', views.random_movies, name='random-movies'),
                   path('ws/movies/search/<str:search_query>/', views.movie_search, name='movie-search'),
+                  path('ws/movies_by_director/<int:director_id>/', views.get_movies_by_director,
+                       name='movies-by-director'),
                   path('ws/movie/<int:movie_id>/', views.movie_detail, name='movie-detail'),
                   path('ws/movie/', views.create_movie, name='create-movie'),
                   path('ws/update_movie/<int:movie_id>/', views.update_movie, name='update-movie'),
