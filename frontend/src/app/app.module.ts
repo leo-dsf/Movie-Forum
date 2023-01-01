@@ -33,6 +33,7 @@ import {MatSelectModule} from "@angular/material/select";
 import { DirectorListComponent } from './components/director-list/director-list.component';
 import { DirectorsComponent } from './components/directors/directors.component';
 import { DirectorComponent } from './components/director/director.component';
+import { AdddirectorComponent } from './components/adddirector/adddirector.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { DirectorComponent } from './components/director/director.component';
     AddMovieComponent,
     DirectorListComponent,
     DirectorsComponent,
-    DirectorComponent
+    DirectorComponent,
+    AdddirectorComponent
   ],
   imports: [
     BrowserModule,
