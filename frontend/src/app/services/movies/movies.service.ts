@@ -47,6 +47,11 @@ export class MoviesService {
     return this.http.get<Movie>(url);
   }
 
+  getDirectorMovies(id: number): Observable<Movie[]> {
+    const url: string = `${this.baseUrl}movies_by_director/${id}/`;
+    return this.http.get<Movie[]>(url);
+  }
+
   searchMovies(searchQuery: string): Observable<Movie[]> {
     const url: string = `${this.baseUrl}movies/search/${searchQuery}/`;
     return this.http.get<Movie[]>(url);
