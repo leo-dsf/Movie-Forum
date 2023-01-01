@@ -11,10 +11,16 @@
       </select>
     </div>
     <div class="row">
-      <button class="btn primaryContained float-right" style="margin-left: auto;" type="submit">Submit</button>
+      <div class="col-md-8">
+        <mat-error *ngIf="failure" style="color: red">Please enter a review and select a rating.</mat-error>
+      </div>
+      <div class="col-md-4">
+        <button class="btn primaryContained float-right" style="margin-left: auto;" type="submit">Submit</button>
+      </div>
     </div>
   </form>
 </div>
+
 <div *ngFor="let review of reviews" class="container">
   <div class="row">
     <div style="display: inline-block">

@@ -33,12 +33,9 @@ import {MatSelectModule} from "@angular/material/select";
 import { DirectorListComponent } from './components/director-list/director-list.component';
 import { DirectorsComponent } from './components/directors/directors.component';
 import { DirectorComponent } from './components/director/director.component';
-<<<<<<< HEAD
-import { AdddirectorComponent } from './components/adddirector/adddirector.component';
-=======
 import { DirectorDetailsComponent } from './components/director-details/director-details.component';
 import { DirectorMoviesComponent } from './components/director-movies/director-movies.component';
->>>>>>> d1afe49fe80efd92c3ab1776a092dc9522787524
+import {AddDirectorComponent} from "./components/adddirector/add-director.component";
 
 
 @NgModule({
@@ -64,12 +61,9 @@ import { DirectorMoviesComponent } from './components/director-movies/director-m
     DirectorListComponent,
     DirectorsComponent,
     DirectorComponent,
-<<<<<<< HEAD
-    AdddirectorComponent
-=======
     DirectorDetailsComponent,
-    DirectorMoviesComponent
->>>>>>> d1afe49fe80efd92c3ab1776a092dc9522787524
+    DirectorMoviesComponent,
+    AddDirectorComponent
   ],
   imports: [
     BrowserModule,

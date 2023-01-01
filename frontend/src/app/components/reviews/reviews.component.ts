@@ -22,12 +22,15 @@ export class ReviewsComponent {
   private userService: UserService;
   private readonly user: Observable<User>;
 
+  public failure: boolean;
+
   constructor(reviewsService: ReviewsService, userService: UserService, private _form_builder: FormBuilder) {
     this.reviewsService = reviewsService;
     this.userService = userService;
     this.user = this.userService.getUser();
     this.reviews = [];
     this.userReview = [];
+    this.failure = false;
   }
 
   ngOnInit() {
@@ -55,6 +58,7 @@ export class ReviewsComponent {
     this.reviewsService.createReview(this.reviewForm.value).subscribe((data: any) => {
         window.location.reload();
       }, (error: HttpErrorResponse) => {
+        this.failure = true;
         console.log(error);
       }
     );

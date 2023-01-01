@@ -52,11 +52,11 @@ export class AddMovieComponent {
     this.moviesService.addMovie(this.movieForm.value).subscribe((response: any) => {
         // Reset the form and display a success message
         this.movieForm.reset();
-        this.successMessage = 'Movie added successfully!';
+        this.successMessage = 'Director added successfully!';
       }, (error: any) => {
         // Display an error message
         console.log(this.movieForm.value);
-        this.errorMessage = 'Error adding movie. Please try again.';
+        this.errorMessage = 'Error adding director. Please try again.';
       }
     );
   }
