@@ -124,6 +124,18 @@ def movie_detail(request, movie_id):
     serializer = MovieSerializer(movie)
     return Response(serializer.data)
 
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def get_movies_by_director(request, director_id):
+    """Get all movies by a director"""
+    try:
+        director = Director.objects.get(id=director_id)
+    except Director.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    movies = Movie.objects.filter(director=director)
+    serializer = MovieSerializer(movies, many=True)
+    return Response(serializer.data)
+
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
