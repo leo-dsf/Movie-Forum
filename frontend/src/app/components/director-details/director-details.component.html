@@ -1,0 +1,22 @@
+<div id="shell">
+    <app-header></app-header>
+    <app-toolbar></app-toolbar>
+    <div *ngIf="director!=null && director!=null">
+      <div id="main">
+        <div class="row">
+          <div class="movie">
+  
+            <div class="movie-image">
+              <img *ngIf="director.image_url" alt="p" src="http://127.0.0.1:8000{{director.image_url}}">
+            </div>
+          </div>
+          <h1>Name: {{director.name}}</h1>
+          <h1>Age: {{director.age}}</h1>
+          <!--<h1>Realease Date: {{movie.release_date}}</h1>
+          <h1>Director: {{director.name}}</h1>-->
+        </div>
+      </div>
+      <!--<app-reviews [movieId]="movie.id"></app-reviews>-->
+    </div>
+  </div>
+  
