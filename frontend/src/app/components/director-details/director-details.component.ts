@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Director } from 'src/app/models/director';
+import { Movie } from 'src/app/models/movie';
 import { DirectorService } from 'src/app/services/directors/director.service';
 import { MoviesService } from 'src/app/services/movies/movies.service';
 
@@ -32,6 +33,11 @@ export class DirectorDetailsComponent {
       this.director = data2;  
     })
     console.log(this.director);
+
+    this.moviesService.getDirectorMovies(this.director_id).subscribe((data1: Movie[]) => { 
+      this.movies = data1;  
+      console.log(this.movies);
+    })
   }
 
 

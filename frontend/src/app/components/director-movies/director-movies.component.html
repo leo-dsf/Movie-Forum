@@ -1,0 +1,7 @@
+<div class="box" style="height: 270px">
+    <div class="head">
+      <app-movie *ngFor="let movie of movies" [image_url]="movie.image_url" [rating]="movie.average_rating ? movie.average_rating : movie.rating"
+                 [routerLink]="['/movies/', movie.id]"></app-movie>
+    </div>
+  </div>
+  
