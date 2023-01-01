@@ -8,6 +8,7 @@ import { MainComponent } from './components/main/main.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import {AddMovieComponent} from "./components/addmovie/add-movie.component";
+import { DirectorListComponent } from './components/director-list/director-list.component';
 
 const routes: Routes = [
   {path: '', component: MainComponent},
@@ -16,7 +17,9 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'movielist', component: MovieListComponent, children:[{path: ':type', component: MoviesComponent}, {path: 'search/:word', component: MoviesComponent}]},
   {path: 'movies/:movie_id', component: MovieDetailsComponent},
-  {path: 'add_movie', component: AddMovieComponent}
+  {path: 'add_movie', component: AddMovieComponent},
+  {path: 'directorlist', component: DirectorListComponent}
+
 ];
 
 @NgModule({

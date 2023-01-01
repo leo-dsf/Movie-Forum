@@ -30,6 +30,9 @@ import { MovieListToolbarComponent } from './components/movie-list-toolbar/movie
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { AddMovieComponent } from './components/addmovie/add-movie.component';
 import {MatSelectModule} from "@angular/material/select";
+import { DirectorListComponent } from './components/director-list/director-list.component';
+import { DirectorsComponent } from './components/directors/directors.component';
+import { DirectorComponent } from './components/director/director.component';
 
 
 @NgModule({
@@ -51,7 +54,10 @@ import {MatSelectModule} from "@angular/material/select";
     MovieListComponent,
     MovieListToolbarComponent,
     ReviewsComponent,
-    AddMovieComponent
+    AddMovieComponent,
+    DirectorListComponent,
+    DirectorsComponent,
+    DirectorComponent
   ],
   imports: [
     BrowserModule,
