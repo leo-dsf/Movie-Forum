@@ -124,6 +124,7 @@ def movie_detail(request, movie_id):
     serializer = MovieSerializer(movie)
     return Response(serializer.data)
 
+
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def get_movies_by_director(request, director_id):
