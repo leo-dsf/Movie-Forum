@@ -7,7 +7,7 @@
     <div class="form-group">
       <label for="rating" style="color: black">Rating ⭐</label>
       <select class="form-control" formControlName="rating" id="rating">
-        <option *ngFor="let rating of ['1 ⭐', '2 ⭐', '3 ⭐', '4 ⭐', '5 ⭐', '6 ⭐', '7 ⭐', '8 ⭐', '9 ⭐', '10 ⭐']" [value]="rating" required>{{rating}}</option>
+        <option *ngFor="let rating of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" [value]="rating" required>{{rating}}</option>
       </select>
     </div>
     <div class="row">
@@ -26,7 +26,7 @@
   </div>
   <div class="row" style="padding-top: 20px;" >
     <h3 style="color:black">{{'⭐'.repeat(review.rating)}}</h3>
-    <button (click)="deleteReview(review.id)" class='primaryContained float-right' style="margin-left: auto;" type="submit">Delete</button>
+    <button *ngIf="activeUser && review.user == activeUser.id" (click)="deleteReview(review.id)" class='primaryContained float-right' style="margin-left: auto;" type="submit">Delete</button>
   </div>
 
 </div>

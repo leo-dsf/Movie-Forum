@@ -1,25 +1,25 @@
-<div id="shell" *ngIf="movies$ | async as movies"> 
-  
+<div id="shell" *ngIf="movies$ | async as movies">
+
   <div id="main">
-     
+
     <div class="row">
 
       <div class="col-md-2" *ngFor="let movie of movies">
 
         <div [routerLink]="['/movies/', movie.id]">
-        
-          <div class="listing-item-style"> 
-        
-            <app-movie [img_url]="movie.image_url" [rating]="movie.rating" ></app-movie>
+
+          <div class="listing-item-style">
+
+            <app-movie [image_url]="movie.image_url" [rating]="movie.average_rating ? movie.average_rating : movie.rating" ></app-movie>
 
           </div>
         </div>
       </div>
     </div>
-    
+
   </div>
 
 </div>
-  
 
- 
+
+

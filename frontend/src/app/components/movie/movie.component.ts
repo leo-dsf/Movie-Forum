@@ -8,7 +8,7 @@ import { MoviesService } from 'src/app/services/movies/movies.service';
 })
 export class MovieComponent {
 
-  @Input() img_url: string | undefined;
+  @Input() image_url: string | undefined;
   @Input() rating: number | undefined;
 
 
@@ -16,7 +16,7 @@ export class MovieComponent {
 
   ngOnInit() {
     //console.log(this.service.getMovie(13));
-    
+
   }
 
 }

@@ -1,12 +1,8 @@
 <div class="box" style="height: 270px">
-
-    <div class="head">
-        <h2>LATEST MOVIES</h2>
-        <p class="text-right">See all</p>
-
-        <app-movie [routerLink]="['/movies/', movie.id]" *ngFor="let movie of movies" [img_url]="movie.image_url" [rating]="movie.rating"></app-movie>
-        
-    </div>
-
-
+  <div class="head">
+    <h2>LATEST MOVIES</h2>
+    <p class="text-right">See all</p>
+    <app-movie *ngFor="let movie of movies" [image_url]="movie.image_url" [rating]="movie.average_rating ? movie.average_rating : movie.rating"
+               [routerLink]="['/movies/', movie.id]"></app-movie>
+  </div>
 </div>

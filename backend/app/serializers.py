@@ -16,10 +16,11 @@ class DirectorSerializer(serializers.ModelSerializer):
 class MovieSerializer(serializers.ModelSerializer):
     director = serializers.PrimaryKeyRelatedField(queryset=Director.objects.all())
     image_url = serializers.ImageField(required=False)
+    average_rating = serializers.FloatField(required=False)
 
     class Meta:
         model = Movie
-        fields = ('id', 'title', 'director', 'description', 'rating', 'release_date', 'image_url')
+        fields = ('id', 'title', 'director', 'description', 'rating', 'average_rating', 'release_date', 'image_url')
 
 
 class ReviewSerializer(serializers.ModelSerializer):

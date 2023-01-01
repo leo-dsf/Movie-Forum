@@ -22,6 +22,7 @@ class Movie(models.Model):
     director = models.ForeignKey(Director, on_delete=models.CASCADE)
     description = models.TextField()
     rating = models.FloatField()
+    average_rating = models.FloatField(default=0)
     release_date = models.DateField()
     image_url = models.ImageField(upload_to=upload_to, blank=True, null=True)
 

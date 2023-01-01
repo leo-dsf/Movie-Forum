@@ -201,6 +201,11 @@ def create_review(request):
     serializer = ReviewSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
+        # Update average rating for movie
+        movie = Movie.objects.get(id=request.data['movie'])
+        reviews = Review.objects.filter(movie=movie)
+        movie.average_rating = sum([review.rating for review in reviews]) / len(reviews)
+        movie.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -216,6 +221,14 @@ def delete_review(request, review_id):
     if review.user != request.user:
         return Response(status=status.HTTP_401_UNAUTHORIZED)
     review.delete()
+    # Update average rating for movie
+    movie = Movie.objects.get(id=review.movie.id)
+    reviews = Review.objects.filter(movie=movie)
+    if len(reviews) > 0:
+        movie.average_rating = sum([review.rating for review in reviews]) / len(reviews)
+    else:
+        movie.average_rating = 0
+    movie.save()
     return Response(status=status.HTTP_204_NO_CONTENT)
 
 
