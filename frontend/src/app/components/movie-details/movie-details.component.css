@@ -1,0 +1,19 @@
+.movie-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .movie-details {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .movie-details img {
+    height: 300px;
+    margin-right: 20px;
+  }
+  
+  .text-details p {
+    margin: 0;
+  }
