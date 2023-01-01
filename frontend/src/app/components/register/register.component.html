@@ -24,7 +24,8 @@
 
             <div>
               <label for="username"><b>Username</b></label>
-              <input formControlName="username" id="username" name="username" placeholder="Enter username" required type="text">
+              <input formControlName="username" id="username" name="username" placeholder="Enter username" required
+                     type="text">
               <mat-error *ngIf="username && username.invalid && username.touched">
                 Your username is not valid
               </mat-error>
@@ -33,14 +34,15 @@
             <br>
 
             <label for="email"><b>Email</b></label>
-            <input formControlName="email" name="email" id="email" placeholder="Enter email" required type="text">
+            <input formControlName="email" id="email" name="email" placeholder="Enter email" required type="text">
             <mat-error *ngIf="email && email.invalid && email.touched">
               Your email is not valid
             </mat-error>
             <br>
 
             <label for="password"><b>Password</b></label>
-            <input formControlName="password" name="password" id="password" placeholder="Enter Password" required type="password">
+            <input formControlName="password" id="password" name="password" placeholder="Enter Password" required
+                   type="password">
             <mat-error *ngIf="password && password.invalid && password.touched">
               Your password is not valid
             </mat-error>

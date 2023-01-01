@@ -17,17 +17,19 @@ import {SearchBarComponent} from './components/search-bar/search-bar.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {RegisterComponent} from './components/register/register.component';
 import {ToolbarComponent} from './components/toolbar/toolbar.component';
-import {MovieComponent} from './components/movie/movie.component'; 
+import {MovieComponent} from './components/movie/movie.component';
 import {LoginComponent} from './components/login/login.component';
 import {InterceptorService} from "./services/interceptor/interceptor.service";
 import {AuthorizationService} from "./services/authorization/authorization.service";
 import {MoviesComponent} from "./components/movies/movies.component";
 import { SessionComponent } from './components/session/session.component';
-import { MainMoviesComponent } from './components/main-movies/main-movies.component'; 
+import { MainMoviesComponent } from './components/main-movies/main-movies.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { MovieListToolbarComponent } from './components/movie-list-toolbar/movie-list-toolbar.component';
-import { ReviewsComponent } from './components/reviews/reviews.component'; 
+import { ReviewsComponent } from './components/reviews/reviews.component';
+import { AddMovieComponent } from './components/addmovie/add-movie.component';
+import {MatSelectModule} from "@angular/material/select";
 
 
 @NgModule({
@@ -40,7 +42,7 @@ import { ReviewsComponent } from './components/reviews/reviews.component';
     RegisterComponent,
     LoginComponent,
     ToolbarComponent,
-    MovieComponent, 
+    MovieComponent,
     LoginComponent,
     MainMoviesComponent,
     MoviesComponent,
@@ -48,7 +50,8 @@ import { ReviewsComponent } from './components/reviews/reviews.component';
     MovieDetailsComponent,
     MovieListComponent,
     MovieListToolbarComponent,
-    ReviewsComponent 
+    ReviewsComponent,
+    AddMovieComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +64,7 @@ import { ReviewsComponent } from './components/reviews/reviews.component';
     MatButtonModule,
     MatDialogModule,
     HttpClientModule,
+    MatSelectModule,
   ], providers: [
     AuthorizationService,
     {

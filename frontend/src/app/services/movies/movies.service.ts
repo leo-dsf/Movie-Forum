@@ -52,9 +52,16 @@ export class MoviesService {
     return this.http.get<Movie[]>(url);
   }
 
-  createMovie(movie: Movie): Observable<Movie> {
+  addMovie(movie: any): Observable<Movie> {
     const url: string = `${this.baseUrl}movie/`;
-    return this.http.post<Movie>(url, movie, httpOptions);
+    let formData = new FormData();
+    formData.append('title', movie.title);
+    formData.append('director', movie.director);
+    formData.append('description', movie.description);
+    formData.append('rating', movie.rating);
+    formData.append('release_date', movie.release_date);
+    formData.append('image_url', movie.image_url);
+    return this.http.post<Movie>(url, formData);
   }
 
   updateMovie(movie: Movie): Observable<Movie> {
