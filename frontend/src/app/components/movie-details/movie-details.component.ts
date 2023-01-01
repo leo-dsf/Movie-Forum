@@ -22,7 +22,7 @@ export class MovieDetailsComponent {
   private authorizationService: AuthorizationService;
   private userService: UserService;
 
-  constructor(authorizationService: AuthorizationService, userService: UserService, private route: ActivatedRoute, private moviesService: MoviesService, private directorService: DirectorService) { 
+  constructor(private router: Router, authorizationService: AuthorizationService, userService: UserService, private route: ActivatedRoute, private moviesService: MoviesService, private directorService: DirectorService) { 
     this.movie_id = null
     this.movie = null
     this.director = null
@@ -55,6 +55,16 @@ export class MovieDetailsComponent {
 
     
     
+  }
+
+  delete(){
+
+    console.log(this.movie_id)
+   
+    this.moviesService.deleteMovie(this.movie_id).subscribe((data: Movie) => {  
+      this.router.navigate(['']);
+    })
+
   }
 
 }

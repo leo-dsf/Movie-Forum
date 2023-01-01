@@ -12,6 +12,7 @@ import {DirectorListComponent} from './components/director-list/director-list.co
 import {DirectorDetailsComponent} from './components/director-details/director-details.component';
 import {AddDirectorComponent} from "./components/adddirector/add-director.component";
 import { UpdateMovieComponent } from './components/update-movie/update-movie.component';
+import { UpdateDirectorComponent } from './components/update-director/update-director.component';
 
 const routes: Routes = [
   {path: '', component: MainComponent},
@@ -25,6 +26,7 @@ const routes: Routes = [
   },
   {path: 'movies/:movie_id', component: MovieDetailsComponent},
   {path: 'update_movie/:movie_id', component: UpdateMovieComponent},
+  {path: 'update_director/:director_id', component: UpdateDirectorComponent},
   {path: 'add_movie', component: AddMovieComponent},
   {path: 'directorlist', component: DirectorListComponent},
   {path: 'directors/:director_id', component: DirectorDetailsComponent},

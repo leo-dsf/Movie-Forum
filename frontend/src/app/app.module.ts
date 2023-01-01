@@ -37,6 +37,7 @@ import { DirectorDetailsComponent } from './components/director-details/director
 import { DirectorMoviesComponent } from './components/director-movies/director-movies.component';
 import {AddDirectorComponent} from "./components/adddirector/add-director.component";
 import { UpdateMovieComponent } from './components/update-movie/update-movie.component';
+import { UpdateDirectorComponent } from './components/update-director/update-director.component';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import { UpdateMovieComponent } from './components/update-movie/update-movie.com
     DirectorDetailsComponent,
     DirectorMoviesComponent,
     AddDirectorComponent,
-    UpdateMovieComponent
+    UpdateMovieComponent,
+    UpdateDirectorComponent
   ],
   imports: [
     BrowserModule,

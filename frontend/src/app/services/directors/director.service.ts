@@ -36,5 +36,21 @@ export class DirectorService {
     formData.append('image_url', director.image_url);
     return this.http.post<Director>(url,formData);
   }
+
+  updateDirector(id: number, director: any): Observable<Director> {
+    const url = `${this.baseUrl}update_director/${id}/`;
+    let formData = new FormData();
+    formData.append('name', director.name);
+    formData.append('age', director.age);
+    formData.append('image_url', director.image_url);
+    console.log(formData)
+    return this.http.post<Director>(url,formData);
+  }
+
+  deleteDirector(id: number): Observable<any>{
+    const url: string = `${this.baseUrl}delete_director/${id}/`;
+    return this.http.post<any>(url, httpOptions);
+  }
+
 }
 

@@ -20,6 +20,7 @@
         <h1>Director: {{director.name}}</h1>
       </div>
       <button *ngIf="user && user.username == 'admin'" [routerLink]="['/update_movie/', movie.id]" style="margin-left: auto;padding: 2%;">Update Movie</button>
+      <button *ngIf="user && user.username == 'admin'" (click)="delete()">Delete Movie</button>
     </div>
     <app-reviews [movieId]="movie.id"></app-reviews>
   </div>

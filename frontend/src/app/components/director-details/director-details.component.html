@@ -12,9 +12,13 @@
           </div>
           <h1>Name: {{director.name}}</h1>
           <h1>Age: {{director.age}}</h1>
+
+          
           <!--<h1>Realease Date: {{movie.release_date}}</h1>
           <h1>Director: {{director.name}}</h1>-->
         </div>
+        <button *ngIf="user && user.username == 'admin'" [routerLink]="['/update_director/', director_id]" style="margin-left: auto;padding: 1%;">Update Director</button>
+        <button *ngIf="user && user.username == 'admin'" (click)="delete()">Delete Director</button>
       </div>
       <!--<app-reviews [movieId]="movie.id"></app-reviews>-->
       <app-director-movies [movies]="movies"></app-director-movies>
