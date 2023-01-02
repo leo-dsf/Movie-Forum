@@ -22,9 +22,15 @@ class Movie(models.Model):
     director = models.ForeignKey(Director, on_delete=models.CASCADE)
     description = models.TextField()
     rating = models.FloatField()
-    average_rating = models.FloatField(default=0)
+    average_rating = models.FloatField()
     release_date = models.DateField()
     image_url = models.ImageField(upload_to=upload_to, blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        # Set average_rating to rating if it is not already set
+        if not self.average_rating:
+            self.average_rating = self.rating
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title

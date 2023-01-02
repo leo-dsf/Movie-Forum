@@ -89,6 +89,8 @@ def movie_list(request, sort_by):
         movies = Movie.objects.all()
     elif sort_by == 'reviews':
         movies = Movie.objects.annotate(num_reviews=Count('review')).order_by('-num_reviews')
+    elif sort_by == 'rating':
+        movies = Movie.objects.order_by('-average_rating')
     else:
         movies = Movie.objects.all().order_by('-' + sort_by)
     serializer = MovieSerializer(movies, many=True)
@@ -240,7 +242,7 @@ def delete_review(request, review_id):
     if len(reviews) > 0:
         movie.average_rating = sum([review.rating for review in reviews]) / len(reviews)
     else:
-        movie.average_rating = 0
+        movie.average_rating = movie.rating
     movie.save()
     return Response(status=status.HTTP_204_NO_CONTENT)
 
