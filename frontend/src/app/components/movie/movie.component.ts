@@ -10,6 +10,7 @@ export class MovieComponent {
   @Input() image_url: string | undefined;
   @Input() rating: number | undefined;
   @Input() title: string | undefined;
+  @Input() id: number | undefined;
 
   constructor() {
   }

@@ -2,7 +2,8 @@
   <p class="text-center mb-3" style="color: white; font-size: 30px">Movies</p>
   <div class="row">
     <div *ngFor="let movie of movies" class="col-md-3 col-sm-4 col-6 mb-3">
-      <app-movie [image_url]="movie.image_url" [rating]="movie.average_rating ? movie.average_rating : movie.rating" [title]="movie.title" [routerLink]="['/movies/', movie.id]"></app-movie>
+      <app-movie [id]="movie.id" [image_url]="movie.image_url"
+                 [rating]="movie.average_rating ? movie.average_rating : movie.rating" [title]="movie.title"></app-movie>
     </div>
   </div>
 </div>
