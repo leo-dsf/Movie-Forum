@@ -1,28 +1,25 @@
 <div id="shell">
   <app-header></app-header>
   <app-toolbar></app-toolbar>
-  <div *ngIf="director!=null && director!=null">
-    <div id="main">
-      <div class="row">
-        <div class="movie">
-
-          <div class="movie-image">
-            <img *ngIf="director.image_url" alt="p" src="http://127.0.0.1:8000{{director.image_url}}">
-          </div>
-        </div>
-        <h1>Name: {{director.name}}</h1>
-        <h1>Age: {{director.age}}</h1>
-
-
-        <!--<h1>Realease Date: {{movie.release_date}}</h1>
-        <h1>Director: {{director.name}}</h1>-->
+  <div *ngIf="director!=null && director!=null" class="container mt-3">
+    <div class="row">
+      <div class="col-md-4">
+        <img *ngIf="director.image_url" alt="p" src="http://127.0.0.1:8000{{director.image_url}}" class="img-fluid">
       </div>
-      <button *ngIf="user && user.username == 'admin'" [routerLink]="['/update_director/', director_id]"
-              style="margin-left: auto;padding: 1%;">Update Director
-      </button>
-      <button (click)="delete()" *ngIf="user && user.username == 'admin'">Delete Director</button>
+      <div class="col-md-8">
+        <h1 class="display-4">{{director.name}}</h1>
+        <p style="color: white; font-size: 25px" class="lead">Age: {{director.age}}</p>
+      </div>
     </div>
-    <!--<app-reviews [movieId]="movie.id"></app-reviews>-->
+    <div class="row mt-3">
+      <div class="col-md-6">
+        <button *ngIf="user && user.username == 'admin'" [routerLink]="['/update_director/', director_id]" class="btn btn-primary">Update Director</button>
+      </div>
+      <div class="col-md-6 text-right">
+        <button (click)="delete()" *ngIf="user && user.username == 'admin'" class="btn btn-danger">Delete Director</button>
+      </div>
+    </div>
     <app-director-movies [movies]="movies"></app-director-movies>
   </div>
 </div>
+

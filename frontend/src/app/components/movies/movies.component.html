@@ -1,15 +1,18 @@
 <div *ngIf="movies$ | async as movies">
   <div id="main">
     <div class="row">
-      <div *ngFor="let movie of movies" class="col-md-2">
-        <div [routerLink]="['/movies/', movie.id]">
-          <div class="listing-item-style">
-            <app-movie [image_url]="movie.image_url"
-                       [rating]="movie.average_rating ? movie.average_rating : movie.rating"
-                       [title]="movie.title"></app-movie>
+      <div *ngFor="let movie of movies" class="col-sm-6 col-md-4 col-lg-3" style="padding-bottom: 20px">
+        <div class="card h-100">
+          <div [routerLink]="['/movies/', movie.id]">
+            <img *ngIf="movie.image_url" class="card-img-top" alt="{{movie.title}}" src="http://127.0.0.1:8000{{movie.image_url}}">
+            <div class="card-body">
+              <h5 class="card-title" style="color: black">{{movie.title}}</h5>
+              <h5 class="card-text" style="color: black">{{movie.average_rating ? movie.average_rating : movie.rating}} ⭐</h5>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+

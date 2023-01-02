@@ -1,11 +1,8 @@
-<div class="movie">
-  <div class="movie-title">
-    <p style="color: white">{{title}}</p>
-  </div>
-  <div class="movie-image">
-    <img *ngIf="image_url" alt="{{title}}" src="http://127.0.0.1:8000{{image_url}}">
-  </div>
-  <div class="rating">
-    <p>{{rating}} ⭐</p>
+<div class="card">
+  <img *ngIf="image_url" class="card-img-top" alt="{{title}}" src="http://127.0.0.1:8000{{image_url}}">
+  <div class="card-body">
+    <h5 class="card-title" style="color: black">{{title}}</h5>
+    <h6 class="card-text" style="color: black">{{rating}} ⭐</h6>
   </div>
 </div>
+

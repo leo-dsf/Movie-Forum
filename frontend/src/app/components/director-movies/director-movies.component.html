@@ -1,7 +1,9 @@
-<div class="box" style="height: 270px">
-  <div class="head">
-    <app-movie *ngFor="let movie of movies" [image_url]="movie.image_url"
-               [rating]="movie.average_rating ? movie.average_rating : movie.rating"
-               [routerLink]="['/movies/', movie.id]"></app-movie>
+<div class="box mt-3">
+  <p class="text-center mb-3" style="color: white; font-size: 30px">Movies</p>
+  <div class="row">
+    <div *ngFor="let movie of movies" class="col-md-3 col-sm-4 col-6 mb-3">
+      <app-movie [image_url]="movie.image_url" [rating]="movie.average_rating ? movie.average_rating : movie.rating" [title]="movie.title" [routerLink]="['/movies/', movie.id]"></app-movie>
+    </div>
   </div>
 </div>
+
