@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { MoviesService } from 'src/app/services/movies/movies.service';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-movie',
@@ -10,9 +9,10 @@ export class MovieComponent {
 
   @Input() image_url: string | undefined;
   @Input() rating: number | undefined;
+  @Input() title: string | undefined;
 
-
-  constructor() {}
+  constructor() {
+  }
 
   ngOnInit() {
     //console.log(this.service.getMovie(13));

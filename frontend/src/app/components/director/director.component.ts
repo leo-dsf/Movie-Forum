@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-director',
@@ -10,7 +10,8 @@ export class DirectorComponent {
   @Input() name: string | undefined;
 
 
-  constructor() {}
+  constructor() {
+  }
 
   ngOnInit() {
     //console.log(this.service.getMovie(13));

@@ -34,7 +34,7 @@ export class AddDirectorComponent {
   }
 
   onSubmit() {
-      this.directorService.addDirector(this.directorForm.value).subscribe((response: any) => {
+    this.directorService.addDirector(this.directorForm.value).subscribe((response: any) => {
         // Reset the form and display a success message
         this.directorForm.reset();
         this.successMessage = 'Director added successfully!';
@@ -43,5 +43,6 @@ export class AddDirectorComponent {
         console.log(this.directorForm.value);
         this.errorMessage = 'Error adding director. Please try again.';
       }
-    ); }
+    );
+  }
 }

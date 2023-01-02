@@ -1,23 +1,18 @@
 .navbar {
-    justify-content: space-between;
-    background-color: black;
-}
-
-.navbar-items {
-    border-color: red;
-    padding-left: 1rem;
-}
-
-.search-bar {
-    margin-bottom: 0px;
-    padding-right: 1rem;
+  display: flex;
+  align-items: center;
+  background-color: black;
+  height: 60px;
 }
 
 .toolbar-button {
-    background-color: black;
-    color: white;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
 }
 
-.toolbar-button:hover {
-    color: red;
+.toolbar-button mat-icon {
+  margin-right: 8px;
 }

@@ -1,12 +1,13 @@
-<mat-toolbar color="primary" class="navbar">
-    <button class="toolbar-button" aria-label="Example icon-button with menu icon" routerLink="">Home</button>
-    <button class="toolbar-button" aria-label="Example icon-button with menu icon" routerLink="/movielist/All">Movie List</button>
-    <button class="toolbar-button" aria-label="Example icon-button with menu icon" routerLink="/directorlist/">Director List</button>
-    <button class="toolbar-button" aria-label="Example icon-button with menu icon"> </button> 
-    <!--<button class="toolbar-button" aria-label="Example icon-button with menu icon">Favorites</button> -->
-
-    <div class="search-bar">
-          <app-search-bar></app-search-bar>
-    </div>
-
+<mat-toolbar class="navbar" color="primary">
+  <button aria-label="Home button" class="toolbar-button" mat-button routerLink="">
+    <span>Home</span>
+  </button>
+  <button aria-label="Movie List button" class="toolbar-button" mat-button routerLink="/movielist/All">
+    <span>Movie List</span>
+  </button>
+  <button aria-label="Director List button" class="toolbar-button" mat-button routerLink="/directorlist/">
+    <span>Director List</span>
+  </button>
+  <app-search-bar></app-search-bar>
 </mat-toolbar>
+

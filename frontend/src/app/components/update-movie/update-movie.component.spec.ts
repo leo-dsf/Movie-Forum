@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { UpdateMovieComponent } from './update-movie.component';
+import {UpdateMovieComponent} from './update-movie.component';
 
 describe('UpdateMovieComponent', () => {
   let component: UpdateMovieComponent;
@@ -8,9 +8,9 @@ describe('UpdateMovieComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UpdateMovieComponent ]
+      declarations: [UpdateMovieComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(UpdateMovieComponent);
     component = fixture.componentInstance;

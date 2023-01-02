@@ -1,7 +1,7 @@
-import { CommonModule } from "@angular/common";
-import { NgModule } from "@angular/core";
-import { RouterModule } from "@angular/router";
-import { ModalComponent } from "../components/modal/modal.component";
+import {CommonModule} from "@angular/common";
+import {NgModule} from "@angular/core";
+import {RouterModule} from "@angular/router";
+import {ModalComponent} from "../components/modal/modal.component";
 
 @NgModule({
   declarations: [ModalComponent],
@@ -11,4 +11,5 @@ import { ModalComponent } from "../components/modal/modal.component";
   ],
   exports: [ModalComponent]
 })
-export class SharedModule { }
+export class SharedModule {
+}

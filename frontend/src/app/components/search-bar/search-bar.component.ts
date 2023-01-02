@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-search-bar',
@@ -8,13 +8,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./search-bar.component.css']
 })
 export class SearchBarComponent {
+  searchForm: FormGroup;
 
-  constructor(private router: Router) { }
+  constructor(private fb: FormBuilder, private router: Router) {
+    this.searchForm = this.fb.group({
+      query: ['']
+    });
+  }
 
-  submit(search:NgForm){
- 
-
-    this.router.navigate(['movielist/search/' + search.value["search_form"]]);
-
-  }  
+  onSubmit() {
+    this.router.navigate(['movielist/search/' + this.searchForm.value.query]);
+  }
 }
+

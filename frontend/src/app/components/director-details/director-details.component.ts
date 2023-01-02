@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Director } from 'src/app/models/director';
-import { Movie } from 'src/app/models/movie';
-import { DirectorService } from 'src/app/services/directors/director.service';
-import { MoviesService } from 'src/app/services/movies/movies.service';
+import {Component} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Director} from 'src/app/models/director';
+import {Movie} from 'src/app/models/movie';
+import {DirectorService} from 'src/app/services/directors/director.service';
+import {MoviesService} from 'src/app/services/movies/movies.service';
 import {AuthorizationService} from "../../services/authorization/authorization.service";
 import {UserService} from "../../services/user/user.service";
 import {User} from "../../models/user";
@@ -15,14 +15,14 @@ import {User} from "../../models/user";
 })
 export class DirectorDetailsComponent {
 
-  director_id : any;
-  director : any;
+  director_id: any;
+  director: any;
   movies: any;
   public user: User | undefined;
   private authorizationService: AuthorizationService;
   private userService: UserService;
 
-  constructor(private router: Router, authorizationService: AuthorizationService, userService: UserService, private route: ActivatedRoute, private moviesService: MoviesService, private directorService: DirectorService) { 
+  constructor(private router: Router, authorizationService: AuthorizationService, userService: UserService, private route: ActivatedRoute, private moviesService: MoviesService, private directorService: DirectorService) {
     this.director_id = null
     this.movies = null
     this.director = null
@@ -39,26 +39,26 @@ export class DirectorDetailsComponent {
     }
 
     this.route.paramMap.subscribe(params => {
-      this.director_id = params.get("director_id"); 
+      this.director_id = params.get("director_id");
       console.log(this.director_id);
     });
 
-    this.directorService.getDirector(this.director_id).subscribe((data2: Director) => { 
-      this.director = data2;  
+    this.directorService.getDirector(this.director_id).subscribe((data2: Director) => {
+      this.director = data2;
     })
     console.log(this.director);
 
-    this.moviesService.getDirectorMovies(this.director_id).subscribe((data1: Movie[]) => { 
-      this.movies = data1;  
+    this.moviesService.getDirectorMovies(this.director_id).subscribe((data1: Movie[]) => {
+      this.movies = data1;
       console.log(this.movies);
     })
   }
 
-  delete(){
+  delete() {
 
     console.log(this.director_id)
-   
-    this.directorService.deleteDirector(this.director_id).subscribe((data: Movie) => {  
+
+    this.directorService.deleteDirector(this.director_id).subscribe((data: Movie) => {
       this.router.navigate(['']);
     })
 

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { MoviesService } from 'src/app/services/movies/movies.service';
+import {Component} from '@angular/core';
+import {MoviesService} from 'src/app/services/movies/movies.service';
 
 
 @Component({
@@ -8,10 +8,11 @@ import { MoviesService } from 'src/app/services/movies/movies.service';
   styleUrls: ['./main-movies.component.css']
 })
 export class MainMoviesComponent {
-  
+
   movies: any;
 
-  constructor(private service:MoviesService) {}
+  constructor(private service: MoviesService) {
+  }
 
   ngOnInit() {
     //console.log(this.service.getMovie(13));
@@ -19,7 +20,6 @@ export class MainMoviesComponent {
       this.movies = response;
       console.log(this.movies)
 
-      
 
       //console.log(this.movieInfo["image_url"])
 

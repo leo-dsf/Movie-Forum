@@ -1,27 +1,31 @@
 <div id="shell">
   <app-header></app-header>
   <app-toolbar></app-toolbar>
-  <div *ngIf="movie!=null && director!=null">
-    <div id="main">
-      <div class="row">
-        <div class="movie">
-
-          <div class="movie-image">
-            <img *ngIf="movie.image_url" alt="p" src="http://127.0.0.1:8000{{movie.image_url}}">
-          </div>
-
-          <div class="rating">
-            <p> {{ movie.average_rating ? movie.average_rating : movie.rating}} ⭐</p>
-          </div>
-        </div>
-        <h1>{{movie.title}}</h1>
-        <h1>Desc: {{movie.description}}</h1>
-        <h1>Realease Date: {{movie.release_date}}</h1>
-        <h1>Director: {{director.name}}</h1>
+  <div *ngIf="movie!=null && director!=null" class="container mt-3">
+    <div class="row">
+      <div class="col-md-4">
+        <img *ngIf="movie.image_url" alt="p" class="img-fluid" src="http://127.0.0.1:8000{{movie.image_url}}">
       </div>
-      <button *ngIf="user && user.username == 'admin'" [routerLink]="['/update_movie/', movie.id]" style="margin-left: auto;padding: 2%;">Update Movie</button>
-      <button *ngIf="user && user.username == 'admin'" (click)="delete()">Delete Movie</button>
+      <div class="col-md-8">
+        <h1 class="display-4">{{movie.title}}</h1>
+        <p class="lead"
+           style="color: white; font-size: 30px">{{ movie.average_rating ? movie.average_rating : movie.rating}} ⭐</p>
+        <p style="color: white; font-size: 25px">{{movie.description}}</p>
+        <p style="color: white; font-size: 25px">Release Date: {{movie.release_date}}</p>
+        <p style="color: white; font-size: 25px">Director: {{director.name}}</p>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-md-6">
+        <button *ngIf="user && user.username == 'admin'" [routerLink]="['/update_movie/', movie.id]"
+                class="btn btn-primary">Update Movie
+        </button>
+      </div>
+      <div class="col-md-6 text-right">
+        <button (click)="delete()" *ngIf="user && user.username == 'admin'" class="btn btn-danger">Delete Movie</button>
+      </div>
     </div>
     <app-reviews [movieId]="movie.id"></app-reviews>
   </div>
 </div>
+

@@ -18,11 +18,10 @@ export class ReviewsComponent {
   reviewForm!: FormGroup;
   public activeUser: User | undefined;
   public userReview: User[];
+  public failure: boolean;
   private reviewsService: ReviewsService;
   private userService: UserService;
   private readonly user: Observable<User>;
-
-  public failure: boolean;
 
   constructor(reviewsService: ReviewsService, userService: UserService, private _form_builder: FormBuilder) {
     this.reviewsService = reviewsService;
@@ -47,8 +46,8 @@ export class ReviewsComponent {
       this.reviews = reviews;
       for (let review of this.reviews) {
         this.userService.getUserById(review.user).subscribe((user: User) => {
-          this.userReview[review.user] =  user;
-        }
+            this.userReview[review.user] = user;
+          }
         );
       }
     });

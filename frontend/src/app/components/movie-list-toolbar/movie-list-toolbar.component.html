@@ -1,6 +1,14 @@
-<mat-toolbar color="primary" class="navbar">
-    <button class="toolbar-button" aria-label="Example icon-button with menu icon" [routerLink]="['/movielist/', 'All']" >All</button>
-    <button class="toolbar-button" aria-label="Example icon-button with menu icon" [routerLink]="['/movielist/', 'Latest']">Latest</button>
-    <button class="toolbar-button" aria-label="Example icon-button with menu icon" [routerLink]="['/movielist/', 'TopRated']">Top Rated</button>
-    <button class="toolbar-button" aria-label="Example icon-button with menu icon" [routerLink]="['/movielist/', 'MostReviews']">Most Reviews</button>  
+<mat-toolbar class="navbar" color="primary">
+  <button aria-label="Home button" class="toolbar-button" mat-button routerLink="/movielist/All">
+    <span>All</span>
+  </button>
+  <button aria-label="Movie List button" class="toolbar-button" mat-button routerLink="/movielist/Latest">
+    <span>Latest</span>
+  </button>
+  <button aria-label="Director List button" class="toolbar-button" mat-button routerLink="/movielist/TopRated">
+    <span>Top Rated</span>
+  </button>
+  <button aria-label="Director List button" class="toolbar-button" mat-button routerLink="/movielist/MostReviews">
+    <span>Most Reviews</span>
+  </button>
 </mat-toolbar>

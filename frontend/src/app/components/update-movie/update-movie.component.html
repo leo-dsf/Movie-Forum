@@ -1,38 +1,37 @@
 <div *ngIf="movie!=null && director!=null" class="container d-flex justify-content-center mt-5">
-    <form (ngSubmit)="onSubmit()" [formGroup]="movieForm" class="border rounded p-5 bg-light">
-      <div class="form-group">
-        <label for="title" style="color: black"><b>Title:</b></label>
-        <input class="form-control" formControlName="title" id="title" required type="text" >
-      </div>
-      <div class="form-group">
-        <label for="director" style="color: black"><b>Director:</b></label>
-        <select class="form-control" formControlName="director" id="director">
-          <option *ngFor="let director of directors" [value]="director.id">{{director.name}}</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="description" style="color: black"><b>Description:</b></label>
-        <textarea class="form-control" formControlName="description" id="description"></textarea>
-      </div>
-      <div class="form-group">
-        <label for="rating" style="color: black"><b>Rating:</b></label>
-        <input class="form-control" formControlName="rating" id="rating" required type="number">
-      </div>
-      <div class="form-group">
-        <label for="release_date" style="color: black"><b>Release Date:</b></label>
-        <input class="form-control" formControlName="release_date" id="release_date" required type="date">
-      </div>
-      <div class="form-group">
-        <label for="image_url" style="color: black"><b>Image:</b></label>
-        <input (change)="uploadImage($event)" class="form-control-file" id="image_url" required style="color: black"
-               type="file">
-      </div>
-      <button class="btn btn-primary" type="submit">Update Movie</button>
-      <p *ngIf="successMessage" style="color: green; padding-top: 20px">{{successMessage}}</p>
-      <p *ngIf="errorMessage" style="color: red; padding-top: 20px">{{errorMessage}}</p>
-    </form>
-  </div>
-  
-  
-  
-  
+  <form (ngSubmit)="onSubmit()" [formGroup]="movieForm" class="border rounded p-5 bg-light">
+    <div class="form-group">
+      <label for="title" style="color: black"><b>Title:</b></label>
+      <input class="form-control" formControlName="title" id="title" required type="text">
+    </div>
+    <div class="form-group">
+      <label for="director" style="color: black"><b>Director:</b></label>
+      <select class="form-control" formControlName="director" id="director">
+        <option *ngFor="let director of directors" [value]="director.id">{{director.name}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="description" style="color: black"><b>Description:</b></label>
+      <textarea class="form-control" formControlName="description" id="description"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="rating" style="color: black"><b>Rating:</b></label>
+      <input class="form-control" formControlName="rating" id="rating" required type="number">
+    </div>
+    <div class="form-group">
+      <label for="release_date" style="color: black"><b>Release Date:</b></label>
+      <input class="form-control" formControlName="release_date" id="release_date" required type="date">
+    </div>
+    <div class="form-group">
+      <label for="image_url" style="color: black"><b>Image:</b></label>
+      <input (change)="uploadImage($event)" class="form-control-file" id="image_url" required style="color: black"
+             type="file">
+    </div>
+    <button class="btn btn-primary" type="submit">Update Movie</button>
+    <p *ngIf="successMessage" style="color: green; padding-top: 20px">{{successMessage}}</p>
+    <p *ngIf="errorMessage" style="color: red; padding-top: 20px">{{errorMessage}}</p>
+  </form>
+</div>
+
+
+

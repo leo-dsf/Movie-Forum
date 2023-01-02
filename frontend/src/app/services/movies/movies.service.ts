@@ -69,7 +69,7 @@ export class MoviesService {
     return this.http.post<Movie>(url, formData);
   }
 
-  updateMovie(id:number, movie: Movie): Observable<Movie> {
+  updateMovie(id: number, movie: Movie): Observable<Movie> {
     const url: string = `${this.baseUrl}update_movie/${id}/`;
     let formData = new FormData();
     formData.append('title', movie.title);
@@ -81,7 +81,7 @@ export class MoviesService {
     return this.http.post<Movie>(url, formData);
   }
 
-  deleteMovie(id: number): Observable<any>{
+  deleteMovie(id: number): Observable<any> {
     const url: string = `${this.baseUrl}delete_movie/${id}/`;
     return this.http.post<any>(url, httpOptions);
   }

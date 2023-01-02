@@ -11,8 +11,8 @@ import {AddMovieComponent} from "./components/addmovie/add-movie.component";
 import {DirectorListComponent} from './components/director-list/director-list.component';
 import {DirectorDetailsComponent} from './components/director-details/director-details.component';
 import {AddDirectorComponent} from "./components/adddirector/add-director.component";
-import { UpdateMovieComponent } from './components/update-movie/update-movie.component';
-import { UpdateDirectorComponent } from './components/update-director/update-director.component';
+import {UpdateMovieComponent} from './components/update-movie/update-movie.component';
+import {UpdateDirectorComponent} from './components/update-director/update-director.component';
 
 const routes: Routes = [
   {path: '', component: MainComponent},

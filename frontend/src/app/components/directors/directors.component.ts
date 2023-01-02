@@ -1,9 +1,5 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
-import { DirectorService } from 'src/app/services/directors/director.service';
-import { DirectorComponent } from '../director/director.component';
+import {Component} from '@angular/core';
+import {DirectorService} from 'src/app/services/directors/director.service';
 
 @Component({
   selector: 'app-directors',
@@ -12,8 +8,9 @@ import { DirectorComponent } from '../director/director.component';
 })
 export class DirectorsComponent {
   directors: any;
-  
-  constructor(private service:DirectorService) {}
+
+  constructor(private service: DirectorService) {
+  }
 
   ngOnInit() {
     //console.log(this.service.getMovie(13));

@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { Director } from 'src/app/models/director';
+import {Director} from 'src/app/models/director';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -34,7 +34,7 @@ export class DirectorService {
     formData.append('name', director.name);
     formData.append('age', director.age);
     formData.append('image_url', director.image_url);
-    return this.http.post<Director>(url,formData);
+    return this.http.post<Director>(url, formData);
   }
 
   updateDirector(id: number, director: any): Observable<Director> {
@@ -44,10 +44,10 @@ export class DirectorService {
     formData.append('age', director.age);
     formData.append('image_url', director.image_url);
     console.log(formData)
-    return this.http.post<Director>(url,formData);
+    return this.http.post<Director>(url, formData);
   }
 
-  deleteDirector(id: number): Observable<any>{
+  deleteDirector(id: number): Observable<any> {
     const url: string = `${this.baseUrl}delete_director/${id}/`;
     return this.http.post<any>(url, httpOptions);
   }

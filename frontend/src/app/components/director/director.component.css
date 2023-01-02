@@ -1,23 +1,22 @@
 .rating {
-    float: left;
-    width: 152px;
-    padding-top: 8px;
-  }
+  float: left;
+  width: 152px;
+  padding-top: 8px;
+}
 
-  .movie-image {
-    float: left;
-    width: 152px;
-    height: 214px;
-    position: relative;
-  }
+.movie-image {
+  float: left;
+  width: 152px;
+  height: 214px;
+  position: relative;
+}
 
-  .movie {
-    width: 152px;
-    float: left;
-    margin: 12px;
-  }
+.movie {
+  width: 152px;
+  float: left;
+  margin: 12px;
+}
 
-  .comments {
-    float:right;
-  }
-  
+.comments {
+  float: right;
+}

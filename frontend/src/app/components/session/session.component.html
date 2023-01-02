@@ -4,22 +4,22 @@
   </a>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li *ngIf="user" class="nav-item">
-        <h3 class="nav-link" style="color: white">{{user.first_name + ' ' + user.last_name}}</h3>
+      <li *ngIf="user && user.username == 'admin'" class="nav-item">
+        <h3><a [routerLink]="['/add_movie']" class="nav-link" style="color: white">Add Movie</a></h3>
+      </li>
+      <li *ngIf="user && user.username == 'admin'" class="nav-item">
+        <h3><a [routerLink]="['/add_director']" class="nav-link" style="color: white">Add Director</a></h3>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
       <li *ngIf="!user" class="nav-item">
-        <h3><a class="nav-link" [routerLink]="['/login']" style="color: red">Login</a></h3>
-      </li>
-      <li *ngIf="user && user.username == 'admin'" class="nav-item">
-        <h3><a class="nav-link" [routerLink]="['/add_movie']" style="color: white">Add Movie</a></h3>
-      </li>
-      <li *ngIf="user && user.username == 'admin'" class="nav-item">
-        <h3><a class="nav-link" [routerLink]="['/add_director']" style="color: white">Add Director</a></h3>
+        <h3><a [routerLink]="['/login']" class="nav-link" style="color: red">Login</a></h3>
       </li>
       <li *ngIf="user" class="nav-item">
-        <h3><a class="nav-link" (click)="logout()" [routerLink]="['/']" style="color: red">Logout</a></h3>
+        <h3 class="nav-link" style="color: white">{{user.first_name + ' ' + user.last_name}}</h3>
+      </li>
+      <li *ngIf="user" class="nav-item">
+        <h3><a (click)="logout()" [routerLink]="['/']" class="nav-link" style="color: red">Logout</a></h3>
       </li>
     </ul>
   </div>

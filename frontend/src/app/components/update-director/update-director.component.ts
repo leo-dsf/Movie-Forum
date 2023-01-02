@@ -1,10 +1,8 @@
 import {Component} from '@angular/core';
 import {DirectorService} from "../../services/directors/director.service";
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Director } from 'src/app/models/director';
-import { Movie } from 'src/app/models/movie'; 
-import { MoviesService } from 'src/app/services/movies/movies.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Director} from 'src/app/models/director';
 
 @Component({
   selector: 'app-update-director',
@@ -13,28 +11,28 @@ import { MoviesService } from 'src/app/services/movies/movies.service';
 })
 export class UpdateDirectorComponent {
 
-  
-  director_id : any;
-  director : any;
+
+  director_id: any;
+  director: any;
   movies: any;
   public successMessage: string = '';
   public errorMessage: string = '';
-  directorForm!: FormGroup; 
+  directorForm!: FormGroup;
 
-  constructor(private router: Router, private _form_builder: FormBuilder,private route: ActivatedRoute, private directorService: DirectorService) {
+  constructor(private router: Router, private _form_builder: FormBuilder, private route: ActivatedRoute, private directorService: DirectorService) {
     this.directorService = directorService;
   }
 
   ngOnInit() {
 
     this.route.paramMap.subscribe(params => {
-      this.director_id = params.get("director_id"); 
-      
+      this.director_id = params.get("director_id");
+
     });
     console.log(this.director_id);
 
-    this.directorService.getDirector(this.director_id).subscribe((data2: Director) => { 
-      this.director = data2;  
+    this.directorService.getDirector(this.director_id).subscribe((data2: Director) => {
+      this.director = data2;
       console.log(this.director.name)
       this.directorForm = this._form_builder.group({
         name: [this.director.name, Validators.required],
@@ -44,7 +42,6 @@ export class UpdateDirectorComponent {
     })
     console.log(this.director);
 
-   
 
   }
 
@@ -57,7 +54,7 @@ export class UpdateDirectorComponent {
   }
 
   onSubmit() {
-      this.directorService.updateDirector(this.director_id, this.directorForm.value).subscribe((response: any) => {
+    this.directorService.updateDirector(this.director_id, this.directorForm.value).subscribe((response: any) => {
         // Reset the form and display a success message
         this.directorForm.reset();
         this.successMessage = 'Director updated successfully!';
@@ -67,6 +64,7 @@ export class UpdateDirectorComponent {
         console.log(this.directorForm.value);
         this.errorMessage = 'Error updating director. Please try again.';
       }
-    ); }
+    );
+  }
 }
- 
+

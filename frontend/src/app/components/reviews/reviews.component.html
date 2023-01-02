@@ -30,9 +30,11 @@
   <div class="row">
     <textarea readonly="readonly">{{ review.review }}</textarea>
   </div>
-  <div class="row" style="padding-top: 20px;" >
+  <div class="row" style="padding-top: 20px;">
     <h3 style="color:black">{{'⭐'.repeat(review.rating)}}</h3>
-    <button *ngIf="activeUser && review.user == activeUser.id" (click)="deleteReview(review.id)" class='primaryContained float-right' style="margin-left: auto;" type="submit">Delete</button>
+    <button (click)="deleteReview(review.id)" *ngIf="activeUser && review.user == activeUser.id"
+            class='primaryContained float-right' style="margin-left: auto;" type="submit">Delete
+    </button>
   </div>
 
 </div>

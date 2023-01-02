@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { Movie } from 'src/app/models/movie';
+import {Component, Input} from '@angular/core';
+import {Movie} from 'src/app/models/movie';
 
 @Component({
   selector: 'app-director-movies',
@@ -14,7 +14,7 @@ export class DirectorMoviesComponent {
 
   }
 
-  ngOnInit(){
+  ngOnInit() {
 
   }
 

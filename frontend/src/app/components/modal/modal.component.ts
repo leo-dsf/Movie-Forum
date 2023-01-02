@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Injectable, Input, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
-import { NgbActiveModal, NgbModal, NgbModalConfig, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import {Component, Injectable} from '@angular/core';
+import {NgbActiveModal, NgbModal, NgbModalConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-modal',
@@ -9,11 +9,12 @@ import { NgbActiveModal, NgbModal, NgbModalConfig, NgbModalRef } from '@ng-boots
 })
 
 @Injectable()
-export class ModalComponent{
+export class ModalComponent {
 
   constructor(
     public activeModal: NgbActiveModal
-  ) {}
+  ) {
+  }
 
   closeModal() {
     this.activeModal.close('Modal Closed');

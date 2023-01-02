@@ -1,6 +1,6 @@
 <div class="box" style="height: 270px">
-    <div class="head">
-      <app-director *ngFor="let director of directors" [image_url]="director.image_url" [name]="director.name"
-                 [routerLink]="['/directors/', director.id]"></app-director>
-    </div>
+  <div class="head">
+    <app-director *ngFor="let director of directors" [image_url]="director.image_url" [name]="director.name"
+                  [routerLink]="['/directors/', director.id]"></app-director>
   </div>
+</div>
