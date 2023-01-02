@@ -4,6 +4,15 @@ Movie forum website.
 ## Course
 This project was developed under the [Technologies and Web Programming](https://www.ua.pt/en/uc/12841) course of [Aveiro University](https://www.ua.pt).
 
+## Accesses
+| Username | Password |
+|:-----:|:-----:|
+| admin | admin |
+| leonardo | leonardo |
+| teles | teles |
+| filipe | filipe |
+
+
 ## Authors
 - [Leonardo Flórido](https://github.com/leo-dsf)
 - [João Teles](https://github.com/jteles277)
