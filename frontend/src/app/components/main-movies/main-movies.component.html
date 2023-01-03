@@ -11,7 +11,7 @@
         <img alt="Movie poster" class="card-img-top" src="http://127.0.0.1:8000{{movie.image_url}}">
         <div class="card-body">
           <h5 class="card-title" style="color: black">{{ movie.title }}</h5>
-          <p class="card-text" style="color: black">{{ movie.rating }} ⭐</p>
+          <p class="card-text" style="color: black">{{ movie.average_rating | number: '1.1-1' }} ⭐</p>
           <p class="card-text" style="color: black">{{ movie.description }}</p>
           <a [routerLink]="['/movies/', movie.id]" class="btn btn-primary"
              style="background-color: red; border-color: red">Learn More</a>
@@ -28,7 +28,7 @@
         <img alt="Movie poster" class="card-img-top" src="http://127.0.0.1:8000{{movie.image_url}}">
         <div class="card-body">
           <h5 class="card-title" style="color: black">{{ movie.title }}</h5>
-          <p class="card-text" style="color: black">{{ movie.rating }} ⭐</p>
+          <p class="card-text" style="color: black">{{ movie.average_rating | number: '1.1-1' }} ⭐</p>
           <p class="card-text" style="color: black">{{ movie.description }}</p>
           <a [routerLink]="['/movies/', movie.id]" class="btn btn-primary"
              style="background-color: red; border-color: red">Learn More</a>
@@ -45,7 +45,7 @@
         <img alt="Movie poster" class="card-img-top" src="http://127.0.0.1:8000{{movie.image_url}}">
         <div class="card-body">
           <h5 class="card-title" style="color: black">{{ movie.title }}</h5>
-          <p class="card-text" style="color: black">{{ movie.rating }} ⭐</p>
+          <p class="card-text" style="color: black">{{ movie.average_rating | number: '1.1-1' }} ⭐</p>
           <p class="card-text" style="color: black">{{ movie.description }}</p>
           <a [routerLink]="['/movies/', movie.id]" class="btn btn-primary"
              style="background-color: red; border-color: red">Learn More</a>

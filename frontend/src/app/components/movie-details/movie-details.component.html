@@ -9,7 +9,7 @@
       <div class="col-md-8">
         <h1 class="display-4">{{movie.title}}</h1>
         <p class="lead"
-           style="color: white; font-size: 30px">{{ movie.average_rating ? movie.average_rating : movie.rating}} ⭐</p>
+           style="color: white; font-size: 30px">{{ movie.average_rating | number: '1.1-1' }} ⭐</p>
         <p style="color: white; font-size: 25px">{{movie.description}}</p>
         <p style="color: white; font-size: 25px">Release Date: {{movie.release_date}}</p>
         <p style="color: white; font-size: 25px">Director: <a
