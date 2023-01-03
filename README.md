@@ -4,6 +4,10 @@ Movie forum website.
 ## Course
 This project was developed under the [Technologies and Web Programming](https://www.ua.pt/en/uc/12841) course of [Aveiro University](https://www.ua.pt).
 
+## Bookmarks
+- Link to [API Documentation - Swagger](http://127.0.0.1:8000/swagger/)
+- Link to [API Documentation - Redoc](http://127.0.0.1:8000/redoc/)
+
 ## Accesses
 | Username | Password |
 |:-----:|:-----:|
@@ -11,7 +15,6 @@ This project was developed under the [Technologies and Web Programming](https://
 | leonardo | leonardo |
 | teles | teles |
 | filipe | filipe |
-
 
 ## Authors
 - [Leonardo Flórido](https://github.com/leo-dsf)
