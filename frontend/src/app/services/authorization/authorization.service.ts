@@ -13,7 +13,7 @@ export class AuthorizationService {
   private readonly baseUrl: string;
 
   constructor(private http: HttpClient) {
-    this.baseUrl = 'https://teles.pythonanywhere.com/ws/';
+    this.baseUrl = 'http://127.0.0.1:8000/ws/';
   }
 
   register(user: any): Observable<any> {
