@@ -5,7 +5,7 @@
         <div class="card h-100">
           <div>
             <img *ngIf="movie.image_url" alt="{{movie.title}}" class="card-img-top"
-                 src="http://127.0.0.1:8000{{movie.image_url}}">
+                 src="https://teles.pythonanywhere.com/{{movie.image_url}}">
             <div class="card-body">
               <h5 class="card-title" style="color: black">{{movie.title}}</h5>
               <h5 class="card-text" style="color: black">{{movie.average_rating ? movie.average_rating : movie.rating}}

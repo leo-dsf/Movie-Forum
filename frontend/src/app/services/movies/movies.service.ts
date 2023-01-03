@@ -14,7 +14,7 @@ export class MoviesService {
   private readonly baseUrl: string;
 
   constructor(private http: HttpClient) {
-    this.baseUrl = 'http://127.0.0.1:8000/ws/';
+    this.baseUrl = 'https://teles.pythonanywhere.com/ws/';
   }
 
   getMovies(): Observable<Movie[]> {
