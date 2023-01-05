@@ -1,8 +1,8 @@
 <div class="card">
-  <img *ngIf="image_url" alt="{{title}}" class="card-img-top" src="https://teles.pythonanywhere.com/{{image_url}}">
+  <img *ngIf="image_url" alt="{{title}}" class="card-img-top" src="https://teles.pythonanywhere.com{{image_url}}">
   <div class="card-body">
     <h5 class="card-title" style="color: black">{{title}}</h5>
-    <h5 class="card-text" style="color: black">{{rating}} ⭐</h5>
+    <h5 class="card-text" style="color: black">{{rating | number: '1.1-1' }} ⭐</h5>
     <a [routerLink]="['/movies/', id]" class="btn btn-primary" style="background-color: red; border-color: red">Learn
       More</a>
   </div>
