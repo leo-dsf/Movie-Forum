@@ -5,6 +5,8 @@ Movie forum website.
 This project was developed under the [Technologies and Web Programming](https://www.ua.pt/en/uc/12841) course of [Aveiro University](https://www.ua.pt).
 
 ## Bookmarks
+- Link to [Angular App](https://movie-forum-418cc.web.app/)
+- Link to [Django API](http://teles.pythonanywhere.com/)
 - Link to [API Documentation - Swagger](http://127.0.0.1:8000/swagger/)
 - Link to [API Documentation - Redoc](http://127.0.0.1:8000/redoc/)
 
